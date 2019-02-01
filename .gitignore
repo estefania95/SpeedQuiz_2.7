@@ -1,0 +1,8 @@
+db.sqlite3
+speedQuizProject/__pycache__/*
+jugadors/migrations/*
+jugadors/__pycache__/*
+partides/migrations/*
+partides/__pycache__/*
+preguntes/migrations/*
+preguntes/__pycache__/*
