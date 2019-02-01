@@ -2,18 +2,17 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from .forms import JugadorForm, ExtendedUserCreationForm
-from django.http import HttpResponse
 
 
 # Create your views here.
 def benvinguda(request):
     return render(request, 'benvinguda/index.html', {})
 
-
+@login_required
 def botiga(request):
-    return render(request, 'botiga/botiga.html', {})
+    return render(request, 'botiga/botiga.html', {'current_user': request.user})
 
-
+@login_required
 def home(request):
     if request.user.is_authenticated:
         username = request.user.username
@@ -21,19 +20,19 @@ def home(request):
         username = 'no tas logejat'
 
     context = {'username': username}
-    return render(request, 'home/home.html', context)
+    return render(request, 'home/home.html', context, {'current_user': request.user})
 
 
 def iniciSessio(request):
     return render(request, 'iniciarSessio/iniciarSessio.html', {})
 
-
+@login_required
 def joc(request):
-    return render(request, 'joc/unJugador.html', {})
+    return render(request, 'joc/unJugador.html', {'current_user': request.user})
 
-
+@login_required
 def puntuacio(request):
-    return render(request, 'puntuacio/puntuacio.html', {})
+    return render(request, 'puntuacio/puntuacio.html', {'current_user': request.user})
 
 
 def registre(request):
