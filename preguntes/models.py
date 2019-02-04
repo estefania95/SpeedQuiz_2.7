@@ -18,7 +18,5 @@ class Resposta(models.Model):
     textResposta = models.CharField(max_length=200)
     esCorrecta = models.BooleanField()
     idPregunta = models.ForeignKey(Pregunta, on_delete=models.CASCADE)
-    class Meta:
-        unique_together = (("idResposta", "idPregunta"),)
 
 

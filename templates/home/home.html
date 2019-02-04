@@ -8,6 +8,13 @@
   <title>Document</title>
 </head>
 <body>
-   <h6>Home</h6>
+    <h6>Home</h6>
+    <a href="{% url 'joc' %}"><h1>Joc</h1></a>
+    <a href="{% url 'botiga' %}"><h1>Botiga</h1></a>
+    <a href="{% url 'puntuacio' %}"><h1>Puntuació</h1></a>
+
+    <p>{{ user.username }}</p>
+    <p>{{ jugador.numFormatges }}</p>
+    <p>{{ jugador.numFormatgets }}</p>
 </body>
 </html>

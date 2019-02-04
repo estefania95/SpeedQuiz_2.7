@@ -2,33 +2,46 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from .forms import JugadorForm, ExtendedUserCreationForm
+from .models import Jugador, Skin, SkinComprada
 
 
 # Create your views here.
 def benvinguda(request):
     return render(request, 'benvinguda/index.html', {})
 
+
 @login_required
 def botiga(request):
-    return render(request, 'botiga/botiga.html', {'current_user': request.user})
+    skins = Skin.objects.all()
+    user = request.user
+    jugador = Jugador.objects.get(usuari=user)
+    skin_comprada = jugador.skin_set.all()
+    context = {'skin_list': skins, 'skin_comprada': skin_comprada, 'jugador': jugador, 'user': user}
+    return render(request, 'botiga/botiga.html', context, {'current_user': request.user})
+
 
 @login_required
 def home(request):
     if request.user.is_authenticated:
-        username = request.user.username
-    else:
-        username = 'no tas logejat'
+        username = request.user
+        jugador = Jugador.objects.get(usuari=username)
 
-    context = {'username': username}
+
+    else:
+        jugador=""
+
+    context = {'jugador': jugador, 'user': username}
     return render(request, 'home/home.html', context, {'current_user': request.user})
 
 
 def iniciSessio(request):
     return render(request, 'iniciarSessio/iniciarSessio.html', {})
 
+
 @login_required
 def joc(request):
     return render(request, 'joc/unJugador.html', {'current_user': request.user})
+
 
 @login_required
 def puntuacio(request):
