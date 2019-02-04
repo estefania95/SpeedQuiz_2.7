@@ -1,6 +1,9 @@
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
+from django.urls import reverse
+
 from .forms import JugadorForm, ExtendedUserCreationForm
 from .models import Jugador, Skin, SkinComprada
 from partides.models import Partida, PartidaJugada
@@ -36,7 +39,22 @@ def home(request):
 
 
 def iniciSessio(request):
-    return render(request, 'iniciarSessio/iniciarSessio.html', {})
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user:
+            if user.is_active:
+                login(request, user)
+                return render(request, 'home/home.html', {'current_user': request.user})
+            else:
+                return HttpResponse("Your account was inactive.")
+        else:
+            print("Someone tried to login and failed.")
+            print("They used username: {} and password: {}".format(username, password))
+            return HttpResponse("Invalid login details given")
+    else:
+        return render(request, 'registration/login.html', {})
 
 
 @login_required
@@ -79,10 +97,10 @@ def registre(request):
 
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
-            usuari = authenticate(username=username, password=password)
+            usuari = authenticate(username=username, password1=password)
             login(request, usuari)
 
-            return redirect('home')
+            return redirect('benvinguda')
     else:
         form = ExtendedUserCreationForm()
         jugador_form = JugadorForm()
