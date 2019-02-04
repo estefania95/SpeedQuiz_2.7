@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from .forms import JugadorForm, ExtendedUserCreationForm
 from .models import Jugador, Skin, SkinComprada
+from partides.models import Partida, PartidaJugada
 
 
 # Create your views here.
@@ -45,7 +46,22 @@ def joc(request):
 
 @login_required
 def puntuacio(request):
-    return render(request, 'puntuacio/puntuacio.html', {'current_user': request.user})
+    user = request.user
+    jugador = Jugador.objects.get(usuari=user)
+    partida = jugador.partida_set.all()
+    suma = 0
+    sumaF = 0
+    partidesGuanyades = 0
+    for p in partida:
+        partidaJugada = PartidaJugada.objects.get(idPartida=p.id, nomJugador=jugador.id)
+        suma += partidaJugada.numFormatges
+        sumaF += partidaJugada.numFormatgets
+        if(partidaJugada.esGuanyador):
+            partidesGuanyades+=1
+    partidesPerdudes = partida.count() -partidesGuanyades
+    context = {'usuari': user, 'jugador': jugador, 'partida': partida, 'suma': suma, 'sumaf': sumaF, 'pG': partidesGuanyades, 'pP': partidesPerdudes}
+
+    return render(request, 'puntuacio/puntuacio.html', context ,{'current_user': request.user})
 
 
 def registre(request):
