@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 from django.urls import reverse
 
 from .forms import JugadorForm, ExtendedUserCreationForm
@@ -95,12 +96,19 @@ def registre(request):
 
             profile.save()
 
+            skinDefault = Skin.objects.get(id=1)
             username = form.cleaned_data.get('username')
+            usuario = User.objects.get(username=username)
+            jugador = Jugador.objects.get(usuari=usuario)
+            skinComprada = SkinComprada.objects.create(posada=True, idJugador=jugador, nomSkin=skinDefault)
+
+            skinComprada.save()
+
             password = form.cleaned_data.get('password1')
-            usuari = authenticate(username=username, password1=password)
+            usuari = authenticate(username=username, password=password)
             login(request, usuari)
 
-            return redirect('benvinguda')
+            return redirect('home')
     else:
         form = ExtendedUserCreationForm()
         jugador_form = JugadorForm()

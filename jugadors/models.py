@@ -19,4 +19,4 @@ class Skin(models.Model):
 class SkinComprada(models.Model):
     idJugador = models.ForeignKey(Jugador, on_delete=models.CASCADE)
     nomSkin = models.ForeignKey(Skin, on_delete=models.CASCADE)
-    posada = models.BooleanField()
+    posada = models.BooleanField(default=False)
