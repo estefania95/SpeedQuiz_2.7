@@ -6,3 +6,4 @@ partides/migrations/*
 partides/__pycache__/*
 preguntes/migrations/*
 preguntes/__pycache__/*
+*.pyc
