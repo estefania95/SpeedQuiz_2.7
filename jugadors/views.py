@@ -21,6 +21,7 @@ def botiga(request):
     user = request.user
     jugador = Jugador.objects.get(usuari=user)
     skin_comprada = jugador.skin_set.all()
+    
     context = {'skin_list': skins, 'skin_comprada': skin_comprada, 'jugador': jugador, 'user': user}
     return render(request, 'botiga/botiga.html', context, {'current_user': request.user})
 
