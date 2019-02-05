@@ -1,19 +1,21 @@
+{% extends '../base.html'%}
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  {% load static %}
-  <link rel="stylesheet" href="../../static/styles/css/index.css">
-  <title>Benvinguda</title>
-</head>
-<body>
-  <button>
-    <a href="{% url 'registre' %}" class="top-menu"></a>
-  </button>
-  <button>
-    <a href="{% url 'iniciSessio' %}" class="top-menu"></a>
-  </button>
-</body>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Benvinguda</title>
+  </head>
+  <body>
+    {% block content%}
+    <div class="row h-25">
+      <img src="../../static/imatges/logo/logo.svg" alt="" srcset="" class="col-5 offset-6 pt-1">
+    </div>
+    <div class="row h-75 flex-column justify-content-end pb-1">
+      <button class="buto col-2 offset-10"><a href="{% url 'registre' %}">Registre</a></button>
+      <button class="buto col-2 offset-10"><a href="{% url 'iniciSessio' %}">Inici Sessio</a></button>
+    </div>
+    {% endblock %}
+  </body>
 </html>
