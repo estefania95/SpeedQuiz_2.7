@@ -11,7 +11,7 @@ class ExtendedUserCreationForm(UserCreationForm):
     fields = ('username', 'email', 'password1', 'password2')
 
   def save(self, commit=True):
-    user = super(UserCreationForm, self).save(commit=True)
+    user = super(ExtendedUserCreationForm, self).save(commit=True)
 
     user.email = self.cleaned_data['email']
 
@@ -23,3 +23,5 @@ class JugadorForm(forms.ModelForm):
   class Meta:
     model = Jugador
     fields = ('numFormatges', 'numFormatgets')
+
+

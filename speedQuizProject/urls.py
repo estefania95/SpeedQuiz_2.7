@@ -21,5 +21,5 @@ from django.conf.urls import url, include
 urlpatterns = [
     url('admin/', admin.site.urls),
     url('', include('jugadors.urls')),
-
+    url('accounts/', include('django.contrib.auth.urls')),
 ]

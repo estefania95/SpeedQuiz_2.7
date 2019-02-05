@@ -4,6 +4,7 @@ from jugadors.models import Jugador
 
 # Create your models here.
 class Partida(models.Model):
+    jugador = models.ManyToManyField(Jugador, through='PartidaJugada')
     dataPartida = models.DateField()
 
 class PartidaJugada(models.Model):
@@ -11,5 +12,4 @@ class PartidaJugada(models.Model):
     nomJugador = models.ForeignKey(Jugador, on_delete=models.CASCADE)
     esGuanyador = models.BooleanField()
     numFormatges = models.IntegerField()
-    class Meta:
-        unique_together = (("idPartida", "nomJugador"),)
+    numFormatgets = models.IntegerField(blank=True, null=True)

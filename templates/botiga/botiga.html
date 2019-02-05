@@ -9,5 +9,20 @@
 </head>
 <body>
   <h6>Botiga</h6>
+  <p>Nom usuari: {{ user.username }}</p>
+  <p>Formatges: {{ jugador.numFormatges }}</p>
+  {% for skin in skin_list %}
+    {% if skin in skin_comprada %}
+      <p>{{ skinP.posada }}</p>
+      <h2>{{skin.nomSkin}}</h2>
+      <p>Preu: {{skin.preu}}</p>
+      <button>Comprada</button>
+    {% else %}
+      <h2>{{skin.nomSkin}}</h2>
+      <p>Preu: {{skin.preu}}</p>
+      <button>Comprar</button>
+    {% endif %}
+  {% endfor %}
+
 </body>
 </html>
