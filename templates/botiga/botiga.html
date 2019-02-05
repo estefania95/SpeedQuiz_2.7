@@ -16,7 +16,13 @@
       <p>{{ skinP.posada }}</p>
       <h2>{{skin.nomSkin}}</h2>
       <p>Preu: {{skin.preu}}</p>
-      <button>Comprada</button>
+      {% for skincomprada in skin.skincomprada_set.all %}
+        {% if skincomprada.posada == True %}
+          <p>Posada</p>
+        {% else %}
+          <button>Posar</button>
+        {% endif %}
+      {% endfor %}
     {% else %}
       <h2>{{skin.nomSkin}}</h2>
       <p>Preu: {{skin.preu}}</p>
