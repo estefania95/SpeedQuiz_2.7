@@ -122,7 +122,7 @@ USE_TZ = True
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    'C:/Users/Xavi/Documents/DAW2/SpeedQuiz/SpeedQuiz/speedQuizProject/static/',
+    'C:/Users/Xavi/Documents/DAW2/Python_2.7/SpeedQuiz_2.7/static/',
 ]
 STATIC_URL = '/static/'
 

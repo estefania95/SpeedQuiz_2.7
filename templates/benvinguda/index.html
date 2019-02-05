@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   {% load static %}
-  <link rel="stylesheet" href='{% static "styles/index.css" %}'>
+  <link rel="stylesheet" href="../../static/styles/css/index.css">
   <title>Benvinguda</title>
 </head>
 <body>
-  <h1>HOLA MENUDA MIERDA</h1>
-  <a href="{% url 'registre' %}" class="top-menu"><H1>Registre</H1></span></a>
-  <a href="{% url 'iniciSessio' %}" class="top-menu"><H1>Iniciar Sessio</H1></span></a>
+  <button>
+    <a href="{% url 'registre' %}" class="top-menu"></a>
+  </button>
+  <button>
+    <a href="{% url 'iniciSessio' %}" class="top-menu"></a>
+  </button>
 </body>
 </html>

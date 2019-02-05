@@ -1,14 +1,11 @@
-$dev: true;
-@import "./EDgrid-master/src/scss/ed-grid.scss";
-
 /* BASE */
 @import './base/base';
 
 /* THEME */
 @import './theme/colors';
 
-/* LAYOUT */
-
+/* LAYOUT */ 
+ 
 /* MODULE */
 @import './module/butons';
 
