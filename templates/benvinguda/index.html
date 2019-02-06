@@ -7,15 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Benvinguda</title>
   </head>
+  {% block content%}
   <body>
-    {% block content%}
-    <div class="row h-25 pt-1">
-      <img src="../../static/imatges/logo/logo.svg" alt="" srcset="" class="col-5 offset-6">
+    <div class="container">
+      <div class="row h-25 pt-1">
+        <img src="../../static/imatges/logo/logo.svg" alt="" srcset="" class="col-5 offset-6">
+      </div>
+      <div class="row h-75 flex-column justify-content-end pb-1">
+        <button class="buto col-2 offset-10"><a class="w-100 h-100" href="{% url 'registre' %}">Registre</a></button>
+        <button class="buto col-2 offset-10"><a class="w-100 h-100" href="{% url 'iniciSessio' %}">Inici Sessio</a></button>
+      </div>
     </div>
-    <div class="row h-75 flex-column justify-content-end pb-1">
-      <button class="buto col-2 offset-10"><a class="w-100 h-100" href="{% url 'registre' %}">Registre</a></button>
-      <button class="buto col-2 offset-10"><a class="w-100 h-100" href="{% url 'iniciSessio' %}">Inici Sessio</a></button>
-    </div>
-    {% endblock %}
   </body>
+  {% endblock %}
 </html>

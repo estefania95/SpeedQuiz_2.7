@@ -5,10 +5,15 @@
 @import './theme/colors';
 
 /* LAYOUT */ 
- 
+@import './layout/home';
+
 /* MODULE */
+@import './module/banerMenu';
+@import './module/configMenu';
 @import './module/butons';
 @import './module/formulari';
+@import './module/panells';
 
 /* STATE */
+@import './state/panells';
 @import './state/butons';

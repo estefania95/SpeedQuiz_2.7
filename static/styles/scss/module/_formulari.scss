@@ -6,12 +6,13 @@
   display: flex;
   justify-content: center;
   input {
+    width: 50%;
     height: 1rem;
+
     border: 0;
     border-bottom: 1px solid gray;
     padding-left: 0.5rem;
     opacity: 0.8;
-    width: 50%;
     &:focus {
       outline: none;
       border-bottom: 1px solid $segon-color;

@@ -6,7 +6,13 @@
 
 body {
   margin : 0;
-  font-family: text_sq;
+  font-family: 'Noticia Text', serif;
+}
+main{
+  height: 70%;
+}
+a{
+  text-decoration: none !important;
 }
 .container{
   height: 100vh;

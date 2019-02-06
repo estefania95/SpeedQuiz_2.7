@@ -1,0 +1,21 @@
+.configMenu{
+  height: 15%;
+
+  border-radius: 5px;
+  background: linear-gradient(184deg, rgba(0, 0, 0, 0.45), transparent ,transparent);
+
+  font-family: 'Patrick Hand', cursive;
+  text-transform: uppercase;
+  color: $blanc;
+
+  path{
+    fill: rgb(255, 255, 58);
+  }
+}
+.configMenu > *{
+  display: flex;
+  justify-content: space-between;
+  @media screen and (min-width: 972px){
+    font-size: 1.5em;
+  }
+}
