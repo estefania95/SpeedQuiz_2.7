@@ -1,3 +1,4 @@
+{% extends '../base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,22 +8,31 @@
   {% load static %}
   <title>Document</title>
 </head>
-<body>
-  <h6>Botiga</h6>
-  <p>Nom usuari: {{ user.username }}</p>
-  <p>Formatges: {{ jugador.numFormatges }}</p>
-  {% for skin in skin_list %}
-    {% if skin in skin_comprada %}
-      <p>{{ skinP.posada }}</p>
-      <h2>{{skin.nomSkin}}</h2>
-      <p>Preu: {{skin.preu}}</p>
-      <button>Comprada</button>
-    {% else %}
-      <h2>{{skin.nomSkin}}</h2>
-      <p>Preu: {{skin.preu}}</p>
-      <button>Comprar</button>
-    {% endif %}
-  {% endfor %}
+{% block content %}
+<body class="bodyBotiga">
+  <div class="container">
+    <header class="row configMenu align-items-center">
+      <a href="{% url 'home' %}" class="col-2 col-md-1 h-100 contenidorFlexa--enrere"><i class="h-100 w-100 flexa flexa--enrera fas fa-long-arrow-alt-left" id="flexa--enrera"></i></a>
+      <span class="col-2 col-md-1 offset-md-7 offset-4"><a href="/accounts/logout">{{ user.username }}</a></span>
+      <span class="col-2 col-md-1"><span><img src="/static/imatges/components/formatge.png" alt="" srcset=""></span>{{ jugador.numFormatges }}</span>
+      <span class="col-2 col-md-1"><span><i class="fas fa-cheese"></i></span>{{ jugador.numFormatgets }}</span>
+    </header>
+    <main class="row">
+        {% for skin in skin_list %}
+        {% if skin in skin_comprada %}
+        <p>{{ skinP.posada }}</p>
+        <h2>{{skin.nomSkin}}</h2>
+        <p>Preu: {{skin.preu}}</p>
+        <button>Comprada</button>
+        {% else %}
+        <h2>{{skin.nomSkin}}</h2>
+        <p>Preu: {{skin.preu}}</p>
+        <button>Comprar</button>
+        {% endif %}
+        {% endfor %}
+    </main>
+  </div>
 
 </body>
+{% endblock %}
 </html>
