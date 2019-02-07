@@ -1,20 +1,52 @@
+{% extends '../base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  {% load static %}
+  {% block css %}
+  <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+  {% endblock %}
   <title>Document</title>
 </head>
-<body>
-  <h6>Puntuacio</h6>
-  <p>Nom usuari: {{ user.username }}</p>
-  <p>Formatges actuals: {{ jugador.numFormatges }}</p>
-  <p>Partides jugades: {{ partida|length }} </p>
-  <p>Formatges totals guanyats: {{ suma }}</p>
-  <p>Formatgets totals guanyats: {{ sumaf }}</p>
-  <p>Partides guanyades: {{ pG }}</p>
-  <p>Partides perdudes: {{ pP }}</p>
-</body>
+{% block content %}
+  <body class="bodyPuntuacio">
+      <div class="container">
+          <header class="row configMenu align-items-center">
+            <a href="{% url 'home' %}" class="col-2 col-md-1 h-100 contenidorFlexa--enrere"><i class="h-100 w-100 flexa flexa--enrera fas fa-long-arrow-alt-left" id="flexa--enrera"></i></a>
+            <span class="col-2 col-md-1 offset-md-7 offset-4"><a href="/accounts/logout">{{ user.username }}</a></span>
+            <span class="col-2 col-md-1"><span><img src="/static/imatges/components/formatge.png" alt="" srcset=""></span>{{ jugador.numFormatges }}</span>
+            <span class="col-2 col-md-1"><span><i class="fas fa-cheese"></i></span>{{ jugador.numFormatgets }}</span>
+          </header>
+          <main class="row mainPuntuacio justify-content-around">
+            <div class="caixaDades col-5">
+              <h2>Partides jugades</h2>
+              <div class="caixaDades__contingut caixaDades__contingut--dibuix"><i class="fas fa-gamepad"></i></div>
+              <div class="caixaDades__contingut caixaDades__contingut--dades">{{ partida|length }}</div>
+            </div>
+            <div class="caixaDades col-5">
+              <h2>Formatges totals guanyats</h2>
+              <div class="caixaDades__contingut caixaDades__contingut--dibuix"><img src="" alt=""></div>
+              <div class="caixaDades__contingut caixaDades__contingut--dades">{{ suma }}</div>
+            </div>
+            <div class="caixaDades col-5">
+              <h2>Formatgets totals guanyats</h2>
+              <div class="caixaDades__contingut caixaDades__contingut--dibuix"><i class="fas fa-cheese"></i></div>
+              <div class="caixaDades__contingut caixaDades__contingut--dades">{{ sumaf }}</div>
+            </div>
+            <div class="caixaDades col-5">
+              <h2>Partides guanyades</h2>
+              <div class="caixaDades__contingut caixaDades__contingut--dibuix"><i class="fas fa-trophy"></i></div>
+              <div class="caixaDades__contingut caixaDades__contingut--dades">{{ pG }}</div>
+            </div>
+            <div class="caixaDades col-5">
+              <h2>Partides Perdudes</h2>
+              <div class="caixaDades__contingut caixaDades__contingut--dibuix"><i class="fas fa-window-close"></i></div>
+              <div class="caixaDades__contingut caixaDades__contingut--dades">{{ pP }}</div>
+            </div>
+          </main>
+        </div>
+  </body>
+{% endblock %}
 </html>

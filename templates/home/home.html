@@ -13,11 +13,11 @@
 {% block content %}
 <body class="bodyHome">
   <div class="container">
-    <section class="row configMenu align-items-center">
+    <header class="row configMenu align-items-center">
       <span class="col-2 col-md-1 offset-md-9 offset-6"><a href="/accounts/logout">{{ user.username }}</a></span>
       <span class="col-2 col-md-1"><span><img src="/static/imatges/components/formatge.png" alt="" srcset=""></span>{{ jugador.numFormatges }}</span>
       <span class="col-2 col-md-1"><span><i class="fas fa-cheese"></i></span>{{ jugador.numFormatgets }}</span>
-    </section>
+    </header>
     <main class="row mainHome">
       <div class="col-12 h-100">
         <article class="row h-100 d-flex align-items-center">
@@ -30,10 +30,10 @@
         </article>
       </div>
     </main>
-    <section class="row banerMenu">
+    <footer class="row banerMenu">
       <div class="logoParter logoPertner--dinahosting col-3 offset-7"></div>
       <div class="logoParter logoPertner--websPunt col-1 offset-1"></div>
-    </section>
+    </footer>
   </div>
 </body>
 {% endblock %}

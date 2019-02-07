@@ -20,15 +20,3 @@
     }
   }
 }
-.contenidorFlexes {
-  height: 15%;
-  a{
-    color: var(--gris);
-  }
-  a:last-child{
-    color: var(--primer-color);
-  }
-}
-.flexa--devant > path{
-  fill: $primer-color;
-}
