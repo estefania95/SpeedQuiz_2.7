@@ -13,6 +13,9 @@ main{
 }
 a{
   text-decoration: none !important;
+  @media screen and (min-width: 972px) {
+    font-size: 1.5rem;
+  }
 }
 .container{
   height: 100vh;

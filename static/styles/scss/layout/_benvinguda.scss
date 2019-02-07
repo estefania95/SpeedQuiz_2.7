@@ -1,0 +1,14 @@
+.bodyBenvinguda{
+  background-image: url('/static/imatges/fons/bosc.jpg');
+  background-size: cover;
+  background-position: center;
+  &::before{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    background-color: rgba(58, 78, 55,.2);
+    
+    content:'';
+  }
+}
