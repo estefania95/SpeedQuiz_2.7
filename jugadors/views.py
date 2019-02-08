@@ -3,11 +3,15 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.urls import reverse
+import random
+from django.http import JsonResponse
 
 from .forms import JugadorForm, ExtendedUserCreationForm
 from .models import Jugador, Skin, SkinComprada
 from partides.models import Partida, PartidaJugada
+from preguntes.models import Pregunta, Categoria, Resposta
 
+import json
 
 # Create your views here.
 def benvinguda(request):
@@ -59,7 +63,15 @@ def iniciSessio(request):
 
 @login_required
 def joc(request):
-    return render(request, 'joc/unJugador.html', {'current_user': request.user})
+    usuari = request.user
+    jugador = Jugador.objects.get(usuari=usuari)
+    partida = Partida.objects.create()
+    partida.save()
+
+
+    context = {'jugador': jugador, 'usuari': usuari}
+
+    return render(request, 'joc/unJugador.html', context, {'current_user': request.user})
 
 
 @login_required
@@ -108,3 +120,32 @@ def registre(request):
     context = {'form': form, 'jugador_form': jugador_form}
 
     return render(request, 'registre/registrarse.html', context)
+
+
+# Vista que retorna un JSON
+
+def json(request):
+    preguntes = Pregunta.objects.all()
+    numero = random.randint(1, len(preguntes))
+    quiz = Pregunta.objects.get(idPregunta=numero)
+    text = quiz.textPregunta
+    cat = quiz.idColor
+    nomCategoria = cat.nomCategoria
+    color = cat.color
+    categoria = {'nomCategoria': nomCategoria, 'color': color}
+
+    totesRespostes = Resposta.objects.filter(idPregunta=quiz)
+    respostes = {}
+    contador=0
+
+    for respostaa in totesRespostes:
+        contador=contador+1
+        textResposta = respostaa.textResposta
+        esCorrecta = respostaa.esCorrecta
+        resposta = {'textResposta': textResposta, 'esCorrexta': esCorrecta}
+        respostes['resposta'+str(contador)] = resposta
+
+    pregunta = {'textPregunta': text, 'categoria': categoria, 'respostes': respostes}
+
+
+    return JsonResponse(pregunta)
