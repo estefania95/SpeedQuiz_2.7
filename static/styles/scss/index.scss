@@ -1,0 +1,26 @@
+/* BASE */
+@import './base/base';
+
+/* THEME */
+@import './theme/colors';
+
+/* LAYOUT */ 
+@import './layout/botiga';
+@import './layout/puntuacio';
+@import './layout/benvinguda';
+@import './layout/home';
+
+/* MODULE */
+@import './module/formulari';
+@import './module/caixaDades';
+@import './module/banerMenu';
+@import './module/configMenu';
+@import './module/panells';
+@import './module/butons';
+@import './module/flexes';
+
+/* STATE */
+@import './state/panells';
+@import './state/butons';
+@import './state/flexes';
+@import './state/caixaDades';

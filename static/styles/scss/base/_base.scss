@@ -1,0 +1,41 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin : 0;
+  font-family: 'Noticia Text', serif;
+}
+main{
+  height: 70%;
+}
+a{
+  text-decoration: none !important;
+  color: var(--blanc)
+}
+a:hover{
+  color: var(--blanc);
+}
+a, input{
+  @media screen and (min-width: 972px) {
+    font-size: 1.5rem;
+  }
+}
+h2{
+  margin: 0;
+}
+header,
+footer{
+  height: 15%;
+}
+.container{
+  height: 100vh;
+}
+.logo{
+  img{
+    width: 100%;
+    height: auto;
+  }
+}

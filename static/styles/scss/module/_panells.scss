@@ -1,0 +1,27 @@
+.panell{
+  height: 20%;
+  width: 51%;
+  
+  background-color: $segon-color;
+  border-radius: 9px;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+
+  a{
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--blanc);
+    @media screen and (min-width: 972px){
+      font-size: 1.5rem;
+    }
+
+    span{
+      margin-left: 1em;
+    }
+  }
+}

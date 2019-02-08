@@ -1,20 +1,40 @@
+{% extends '../base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  {% load static %}
+  {% block css %}
+  <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+  {% endblock %}
   <title>Document</title>
 </head>
-<body>
-    <h6>Home</h6>
-    <a href="{% url 'joc' %}"><h1>Joc</h1></a>
-    <a href="{% url 'botiga' %}"><h1>Botiga</h1></a>
-    <a href="{% url 'puntuacio' %}"><h1>Puntuació</h1></a>
-
-    <p>{{ user.username }}</p>
-    <p>{{ jugador.numFormatges }}</p>
-    <p>{{ jugador.numFormatgets }}</p>
+{% block content %}
+<body class="bodyHome">
+  <div class="container">
+    <header class="row configMenu align-items-center">
+      <span class="col-2 col-md-1 offset-md-9 offset-6"><a href="/accounts/logout">{{ user.username }}</a></span>
+      <span class="col-2 col-md-1"><span><img src="/static/imatges/components/formatge.png" alt="" srcset=""></span>{{ jugador.numFormatges }}</span>
+      <span class="col-2 col-md-1"><span><i class="fas fa-cheese"></i></span>{{ jugador.numFormatgets }}</span>
+    </header>
+    <main class="row mainHome">
+      <div class="col-12 h-100">
+        <article class="row h-100 d-flex align-items-center">
+          <section class="panellsContainer h-100 col-6 d-flex align-content-around flex-wrap">
+            <div class="panell"><a href="{% url 'joc' %}"><span>Joc</span></a></div>
+            <div class="panell"><a href="{% url 'botiga' %}"><span>Botiga</span></a></div>
+            <div class="panell"><a href="{% url 'puntuacio' %}"><span>Puntuació</span></a></div>
+          </section>
+          <section class="col-6"></section>
+        </article>
+      </div>
+    </main>
+    <footer class="row banerMenu">
+      <div class="logoParter logoPertner--dinahosting col-3 offset-7"></div>
+      <div class="logoParter logoPertner--websPunt col-1 offset-1"></div>
+    </footer>
+  </div>
 </body>
+{% endblock %}
 </html>

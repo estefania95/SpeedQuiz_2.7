@@ -1,0 +1,11 @@
+.contenidorFlexa--enrere:hover,
+.flexa--enrere:hover > path
+{
+  color: var(--gris);
+}
+
+.contenidorFlexa--devant:hover,
+.flexa--devant:hover > path
+{
+  color: var(--primer-color);
+}

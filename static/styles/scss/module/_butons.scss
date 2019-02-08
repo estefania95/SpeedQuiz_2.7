@@ -1,0 +1,12 @@
+.buto{
+  background-color: var(--primer-color);
+  border-radius: 9px;
+  padding: 0 !important;
+
+  max-height: 6rem;
+  a{
+    font-family: 'Noticia Text', serif;
+    font-weight: bold;
+    color: var(--blanc);
+  }
+}
