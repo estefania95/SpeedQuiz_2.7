@@ -8,6 +8,19 @@
   <title>Document</title>
 </head>
 <body>
-  <h6>Guejesito</h6>
+  <h6>Juegesito</h6>
+  <p>{{usuari.username}}
+    <script>
+      var url = "http://127.0.0.1:8000/home/api/";
+
+      var request = new XMLHttpRequest();
+      request.open('GET', url);
+      request.responseType = 'json';
+      request.send();
+      request.onload = function() {
+        var pregunta = request.response;
+        console.log(pregunta)
+      }
+    </script>
 </body>
 </html>
