@@ -19,16 +19,24 @@
     </header>
     <main class="row">
         {% for skin in skin_list %}
-        {% if skin in skin_comprada %}
-        <p>{{ skinP.posada }}</p>
-        <h2>{{skin.nomSkin}}</h2>
-        <p>Preu: {{skin.preu}}</p>
-        <button>Comprada</button>
-        {% else %}
-        <h2>{{skin.nomSkin}}</h2>
-        <p>Preu: {{skin.preu}}</p>
-        <button>Comprar</button>
-        {% endif %}
+            {% if skin in skin_comprada %}
+              <p>{{ skinP.posada }}</p>
+              <h2>{{skin.nomSkin}}</h2>
+              <p>Preu: {{skin.preu}}</p>
+              {% for skincomprada in skin.skincomprada_set.all %}
+                {% if skincomprada.idJugador == jugador and skincomprada.nomSkin == skin %}
+                  {% if skincomprada.posada == True %}
+                    <p>Posada</p>
+                  {% else %}
+                  <button>Posar</button>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            {% else %}
+              <h2>{{skin.nomSkin}}</h2>
+              <p>Preu: {{skin.preu}}</p>
+              <button>Comprar</button>
+            {% endif %}
         {% endfor %}
     </main>
   </div>
