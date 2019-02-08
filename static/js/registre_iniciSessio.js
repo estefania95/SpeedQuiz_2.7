@@ -1,7 +1,7 @@
 $(document).ready(function() {
-  $("#flexa--devant").on("click" ,function() {
-    alert("hola mon");
-    //$(form).submit();
+  $("#contenidorFlexa--enrere").click(function() {
+    alert("hola")
+    document.form_.submit();
   });
   $("#id_username").attr("placeholder", "Nom d'usuari");
   $("#id_email").attr("placeholder", "Email");
