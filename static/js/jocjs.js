@@ -38,9 +38,9 @@ function eventsClick(){
         respostes[i].on("click", function() {
             esCorrecte = event[i];
             if (esCorrecte) {
-              bloquearacierto();
+              correcte();
             } else {
-              bloquearerror();
+              inCorrecte();
             }
             peticio();
         });   
@@ -57,11 +57,11 @@ function inprimirContingut(){
     r4.html(Response.respostes.resposta4.textResposta);
 }
 
-function bloquearacierto() {
+function correcte() {
   quesitos += 1;
   preguntes -= 1;
 }
 
-function bloquearerror() {
+function inCorrecte() {
   preguntes -= 1;
 }
