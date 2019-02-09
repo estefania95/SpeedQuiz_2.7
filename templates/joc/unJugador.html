@@ -4,23 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   {% load static %}
   <title>Document</title>
 </head>
 <body>
   <h6>Juegesito</h6>
-  <p>{{usuari.username}}
-    <script>
-      var url = "http://127.0.0.1:8000/home/api/";
+  <p>{{usuari.username}}</p>
+  <button class="seguent" onclick="peticio()">Següent pregunta!</button>
+  <div id="divgeneral">
+    <p id="pregunta"></p>
+    <button id="resposta--1"></button>
+    <button id="resposta--2"></button>
+    <button id="resposta--3"></button>
+    <button id="resposta--4"></button>
+  </div>
 
-      var request = new XMLHttpRequest();
-      request.open('GET', url);
-      request.responseType = 'json';
-      request.send();
-      request.onload = function() {
-        var pregunta = request.response;
-        console.log(pregunta)
-      }
-    </script>
 </body>
+<script src="../../static/js/jocjs.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </html>
