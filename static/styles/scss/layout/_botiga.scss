@@ -2,4 +2,8 @@
   background-image: url('/static/imatges/fons/botiga.jpg');
   background-size: cover;
   background-position: center;
+
+  main{
+    overflow: scroll;
+  }
 }

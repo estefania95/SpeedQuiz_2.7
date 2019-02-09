@@ -1,0 +1,14 @@
+@mixin vidre {
+  order-radius: 10px;
+  border: solid 5px rgba(255,255,255,.1);
+  background: linear-gradient(-45deg, rgba(255,255,255,.2) 60%, rgba(255,255,255,.05) 60%, rgba(255,255,255,.05) 80%, rgba(0,0,0,.1) 80%);
+  background: -webkit-linear-gradient(-45deg, rgba(255,255,255,.2) 60%, rgba(255,255,255,.05) 60%, rgba(255,255,255,.05) 80%, rgba(0,0,0,.1) 80%);
+  background: -moz-linear-gradient(-45deg, rgba(255,255,255,.2) 60%, rgba(255,255,255,.05) 60%, rgba(255,255,255,.05) 80%, rgba(0,0,0,.1) 80%);
+}
+@mixin glossy($color) {
+  background-color: rgba($color, .8);
+  box-shadow: 4px 4px rgba(0,0,0,.5);
+}
+@mixin hombra {
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+}
