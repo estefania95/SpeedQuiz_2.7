@@ -5,15 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  {% load static %}
+  {% block css %}
+  <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+  {% endblock %}
   <title>Document</title>
 </head>
 {% block content %}
-<body>
-  <h6>Juegesito</h6>
-  <p>{{usuari.username}}</p>
-  <p>{{jugador.numFormatges}}</p>
-  <p>{{jugador.numFormatgets}}</p>
   <p id="partida">{{ partida.id }}</p>
     <script>
       var url = "http://127.0.0.1:8000/home/api/";
@@ -56,6 +53,39 @@
 
 
     </script>
+<body class="bodyJoc">
+  <div class="container">
+    <header class="row configMenu align-items-center">
+      <a href="{% url 'home' %}" class="col-2 col-md-1 h-100 contenidorFlexa--enrere"><i class="h-100 w-100 flexa flexa--enrera fas fa-long-arrow-alt-left" id="flexa--enrera"></i></a>
+      <span class="col-2 col-md-1 offset-md-7 offset-4"><a href="/accounts/logout">{{ user.username }}</a></span>
+      <span class="col-2 col-md-1"><span><img src="/static/imatges/components/formatge.png" alt="" srcset=""></span><span id="formatgesGrans">{{ jugador.numFormatges }}</span></span>
+      <span class="col-2 col-md-1"><span><i class="fas fa-cheese"></i></span><span id="formatgesPetits">{{ jugador.numFormatgets }}</span></span>
+    </header>
+    <main class="row mainJoc">
+      <section class="cartellPreguntesContainer col-9 col-md-6 ">
+        <div class="cartellPreguntes w-100 h-100">
+          <div class="cartellPreguntes__pregunta">
+            <p id="pregunta">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </div>
+          <button class="cartellPreguntes__resposta cartellPregunta__resposta--1">
+            <span>1. </span><span id="resposta--1">Barcelona</span> 
+          </button>
+          <button class="cartellPreguntes__resposta cartellPregunta__resposta--2">
+            <span>2. </span><span id="resposta--2">Barcelona</span> 
+          </button>
+          <button class="cartellPreguntes__resposta cartellPregunta__resposta--3">
+            <span>3. </span><span id="resposta--3">Barcelona</span>
+          </button>
+          <button class="cartellPreguntes__resposta cartellPregunta__resposta--4">
+            <span>4. </span><span id="resposta--4">Barcelona</span>
+          </button> 
+        </div>
+      </section>
+      <section class="avatarContainer col-3 col-md-6 h-100">
+        <img src="/static/imatges/components/skins/bañador.png" alt="" class="">
+      </section>
+    </main>
+  </div>
 </body>
 {% endblock %}
 </html>

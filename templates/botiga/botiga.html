@@ -17,30 +17,42 @@
       <span class="col-2 col-md-1"><span><img src="/static/imatges/components/formatge.png" alt="" srcset=""></span>{{ jugador.numFormatges }}</span>
       <span class="col-2 col-md-1"><span><i class="fas fa-cheese"></i></span>{{ jugador.numFormatgets }}</span>
     </header>
-    <main class="row">
+    <main class="row justify-content-around">
         {% for skin in skin_list %}
-            {% if skin in skin_comprada %}
-              <p>{{ skinP.posada }}</p>
-              <h2>{{skin.nomSkin}}</h2>
-              <p>Preu: {{skin.preu}}</p>
+        <section class="vitrinaSkin col-5 col-sm-4 h-100 offset-1 mb-3">
+          <header class="vitrinaSkin__header">
+            <h2>{{skin.nomSkin}}</h2>
+          </header>
+          <div class="vitrinaSkin__skin">
+            <img class="img-fluid" src="/static/imatges/components/skins/{{skin.nomSkin}}" alt="skin">
+          </div>
+          {% if skin in skin_comprada %}
+            <footer class="vitrinaSkin__peu">
+                <span>Preu: {{skin.preu}}</span>
               {% for skincomprada in skin.skincomprada_set.all %}
                 {% if skincomprada.idJugador == jugador and skincomprada.nomSkin == skin %}
                   {% if skincomprada.posada == True %}
-                    <p>Posada</p>
+                    <span>Posada</span>
                   {% else %}
-                  <button>Posar</button>
+                    <button>Posar</button>
                   {% endif %}
                 {% endif %}
               {% endfor %}
-            {% else %}
-              <h2>{{skin.nomSkin}}</h2>
-              <p>Preu: {{skin.preu}}</p>
-              <button>Comprar</button>
-            {% endif %}
+          </footer>
+          {% else %}
+            <footer class="vitrinaSkin__peu">
+              <span>Preu: {{skin.preu}}</span>
+              <button class="buto">Comprar</button>
+            </footer>
+          {% endif %}
+          </section>
         {% endfor %}
     </main>
+    <footer class="row banerMenu">
+      <div class="logoParter logoPertner--dinahosting col-3 offset-7"></div>
+      <div class="logoParter logoPertner--websPunt col-1 offset-1"></div>
+    </footer>
   </div>
-
 </body>
 {% endblock %}
 </html>

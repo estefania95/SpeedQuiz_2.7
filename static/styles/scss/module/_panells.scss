@@ -4,7 +4,7 @@
   
   background-color: $segon-color;
   border-radius: 9px;
-  box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+  @include hombra;
 
   a{
     display: flex;

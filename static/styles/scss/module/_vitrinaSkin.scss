@@ -1,0 +1,46 @@
+.vitrinaSkin{
+  @include glossy($tercer-color);
+  border-radius: 15px;
+}
+.vitrinaSkin__header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Patrick Hand', cursive;
+  text-transform: uppercase;
+  color: var(--blanc);
+}
+.vitrinaSkin__header,
+.vitrinaSkin__peu{
+  height: 15%;
+}
+.vitrinaSkin__skin{
+  height: 70%;
+  background-color: rgba($blanc, .4);
+  display: flex;
+  justify-content: center;
+  &::before{
+    position: absolute;
+    content: '';
+    width: calc(100% - 30px);
+    height: 70%;
+    @include vidre;
+  }
+}
+.vitrinaSkin__peu{
+  display: flex;
+  align-items: center;
+  span, 
+  button{
+    width: 50%;
+    height: 75%;
+    @media screen and (min-width: 972px) {
+      font-size: 1.5rem;
+    }
+  }
+  span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

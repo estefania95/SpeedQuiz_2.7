@@ -1,0 +1,16 @@
+.bodyJoc{
+  background-image: url('/static/imatges/fons/joc.jpg');
+}
+.avatarContainer{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  img{
+    height: 100%;
+    max-width: 100%;
+  }
+}
+.mainJoc{
+  height: 80%;
+  max-height: 500px;
+}
