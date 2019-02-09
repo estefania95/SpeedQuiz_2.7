@@ -27,7 +27,7 @@ def botiga(request):
     user = request.user
     jugador = Jugador.objects.get(usuari=user)
     skin_comprada = jugador.skin_set.all()
-    
+
     context = {'skin_list': skins, 'skin_comprada': skin_comprada, 'jugador': jugador, 'user': user}
     return render(request, 'botiga/botiga.html', context, {'current_user': request.user})
 
@@ -135,17 +135,9 @@ def registre(request):
 # Vista que retorna un JSON
 
 def json(request):
-    partida = ""
-    if request.method == 'GET':
-        dades = request.GET
-        idpartida = dades['partida']
-        partida = Partida.objects.get(id=idpartida)
     preguntes = Pregunta.objects.all()
     numero = random.randint(1, len(preguntes))
     quiz = Pregunta.objects.get(idPregunta=numero)
-
-    #Guardar pregunta a partida
-    partida.pregunta = quiz
 
     text = quiz.textPregunta
     cat = quiz.idColor
