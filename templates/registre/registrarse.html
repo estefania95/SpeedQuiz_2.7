@@ -12,29 +12,19 @@
   <body>
     <div class="container">
       <div class="row h-25 justify-content-center pt-2">
-        <img
-        src="../../static/imatges/logo/logo.svg"
-        alt=""
-        srcset=""
-        class="col-5"
-        />
+        <img src="../../static/imatges/logo/logo.svg" alt="" srcset="" class="col-5"/>
       </div>
-      <form
-      method="POST"
-      action="{% url 'registre' %}"
-      class="row p-3 formulari align-items-center"
-      >
+      <form method="POST" action="{% url 'registre' %}" class="row p-3 formulari align-items-center">
       {% csrf_token %}
       <div class="form__InputContainer">{{ form.username }}</div>
       <div class="form__InputContainer">{{ form.email }}</div>
       <div class="form__InputContainer">{{ form.password1 }}</div>
       <div class="form__InputContainer">{{ form.password2 }}</div>
-      <!-- <input type="submit" value="Crear un nou compte" /> -->
+      <footer class="row w-100 justify-content-between align-items-center">
+        <a href="{% url 'benvinguda' %}" class="col-2 col-md-1 h-100 contenidorFlexa--enrere"><i class="h-100 w-100 flexa flexa--enrera fas fa-long-arrow-alt-left" id="flexa--enrera"></i></a>
+        <button type="submit" class="col-2 offset-8 col-md-1 offset-md-10 h-100 contenidorFlexa--devant"><i class="w-100 h-100 flexa flexa--devant fas fa-long-arrow-alt-right"id="flexa--devant"></i></button>
+      </footer>
     </form>
-    <footer class="row justify-content-between align-items-center">
-    <a href="{% url 'benvinguda' %}" class="col-2 col-md-1 h-100 contenidorFlexa--enrere"><i class="h-100 w-100 flexa flexa--enrera fas fa-long-arrow-alt-left" id="flexa--enrera"></i></a>
-    <i class="col-2 offset-8 col-md-1 offset-md-10 h-100  flexa flexa--devant fas fa-long-arrow-alt-right"id="flexa--devant"></i>
-  </footer>
 </div>
 </body>
 {% endblock %}
