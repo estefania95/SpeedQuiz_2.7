@@ -2,6 +2,7 @@ from django.db import models
 # Create your models here.
 
 
+
 class Categoria(models.Model):
     color = models.CharField(max_length=10, unique=True)
     nomCategoria = models.CharField(max_length=50, unique=True)
@@ -11,6 +12,7 @@ class Pregunta(models.Model):
     idPregunta = models.AutoField(primary_key=True)
     textPregunta = models.TextField()
     idColor = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+
 
 
 

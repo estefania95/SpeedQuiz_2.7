@@ -1,5 +1,6 @@
+{% extends '../base.html' %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,13 @@
   {% load static %}
   <title>Document</title>
 </head>
+{% block content %}
 <body>
   <h6>Juegesito</h6>
-  <p>{{usuari.username}}
+  <p>{{usuari.username}}</p>
+  <p>{{jugador.numFormatges}}</p>
+  <p>{{jugador.numFormatgets}}</p>
+  <p id="partida">{{ partida.id }}</p>
     <script>
       var url = "http://127.0.0.1:8000/home/api/";
 
@@ -19,8 +24,38 @@
       request.send();
       request.onload = function() {
         var pregunta = request.response;
-        console.log(pregunta)
       }
+
+
+      var partida = $('#partida').text();
+      var data = {"formatgets": 10, "partida": partida };
+
+      $.ajax({
+          url: 'http://127.0.0.1:8000/home/api/',
+          type: 'GET',
+          contentType: 'application/json; charset=utf-8',
+          data: data,
+          dataType: 'text',
+          success: function() {
+
+          }
+      });
+
+      var url2 = "http://127.0.0.1:8000/partida/";
+
+      $.ajax({
+          url: 'http://127.0.0.1:8000/partida/',
+          type: 'GET',
+          contentType: 'application/json; charset=utf-8',
+          data: data,
+          dataType: 'text',
+          success: function() {
+
+          }
+      });
+
+
     </script>
 </body>
+{% endblock %}
 </html>

@@ -3,9 +3,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
-from django.urls import reverse
+
 import random
 from django.http import JsonResponse
+from django.http import StreamingHttpResponse
+from json import loads
 
 from .forms import JugadorForm, ExtendedUserCreationForm
 from .models import Jugador, Skin, SkinComprada
@@ -70,8 +72,7 @@ def joc(request):
     partida = Partida.objects.create()
     partida.save()
 
-
-    context = {'jugador': jugador, 'usuari': usuari}
+    context = {'jugador': jugador, 'usuari': usuari, 'partida': partida}
 
     return render(request, 'joc/unJugador.html', context, {'current_user': request.user})
 
@@ -134,15 +135,23 @@ def registre(request):
 # Vista que retorna un JSON
 
 def json(request):
+    partida = ""
+    if request.method == 'GET':
+        dades = request.GET
+        idpartida = dades['partida']
+        partida = Partida.objects.get(id=idpartida)
     preguntes = Pregunta.objects.all()
     numero = random.randint(1, len(preguntes))
     quiz = Pregunta.objects.get(idPregunta=numero)
+
+    #Guardar pregunta a partida
+    partida.pregunta = quiz
+
     text = quiz.textPregunta
     cat = quiz.idColor
     nomCategoria = cat.nomCategoria
     color = cat.color
     categoria = {'nomCategoria': nomCategoria, 'color': color}
-
     totesRespostes = Resposta.objects.filter(idPregunta=quiz)
     respostes = {}
     contador=0
@@ -151,10 +160,42 @@ def json(request):
         contador=contador+1
         textResposta = respostaa.textResposta
         esCorrecta = respostaa.esCorrecta
-        resposta = {'textResposta': textResposta, 'esCorrexta': esCorrecta}
+        resposta = {'textResposta': textResposta, 'esCorrecta': esCorrecta}
         respostes['resposta'+str(contador)] = resposta
 
     pregunta = {'textPregunta': text, 'categoria': categoria, 'respostes': respostes}
 
 
-    return JsonResponse(pregunta)
+    return HttpResponse(pregunta)
+
+def respostaPartida(request):
+    if request.is_ajax():
+        if request.method == 'GET':
+            dades = request.GET
+            formatgets = int(dades['formatgets'])
+            formatgetsG = formatgets
+            idpartida = dades['partida']
+            partida = Partida.objects.get(id=idpartida)
+            usuari = request.user
+            jugador = Jugador.objects.get(usuari=usuari)
+            esGuanyador = False;
+            if formatgets == 10:
+                esGuanyador = True
+            formatges=0
+            while formatgets >= 4:
+                formatges+=1
+                formatgets-=4
+            formatgesJugador = jugador.numFormatges+formatges
+            formatgetsJugador = jugador.numFormatgets+formatgets
+            while formatgetsJugador >= 4:
+                formatgesJugador+=1
+                formatgetsJugador-=4
+            jugador.numFormatgets=formatgetsJugador
+            jugador.numFormatges=formatgesJugador
+            jugador.save()
+            partidaJugada = PartidaJugada.objects.create(idPartida=partida, nomJugador=jugador, esGuanyador=esGuanyador,
+                                                         numFormatges=formatges, numFormatgets=formatgetsG)
+            partidaJugada.save()
+
+
+    return HttpResponse("OK")

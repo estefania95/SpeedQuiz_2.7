@@ -12,5 +12,6 @@ urlpatterns = [
         url(r'^joc/', views.joc, name='joc'),
         url(r'^puntuacio/', views.puntuacio, name='puntuacio'),
         url(r'^api/', views.json, name='json'),
-    ]))
+    ])),
+    url(r'^partida/', views.respostaPartida, name='partida'),
 ]
