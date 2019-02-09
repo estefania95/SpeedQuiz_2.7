@@ -170,7 +170,7 @@ def respostaPartida(request):
             partida = Partida.objects.get(id=idpartida)
             usuari = request.user
             jugador = Jugador.objects.get(usuari=usuari)
-            esGuanyador = False;
+            esGuanyador = False
             if formatgets == 10:
                 esGuanyador = True
             formatges=0
@@ -191,3 +191,8 @@ def respostaPartida(request):
 
 
     return HttpResponse("OK")
+
+# Politica de privacitat
+
+def politica(request):
+    return render(request, 'politica/politica.html')
