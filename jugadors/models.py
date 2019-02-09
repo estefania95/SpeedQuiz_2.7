@@ -9,6 +9,8 @@ class Jugador(models.Model):
 
     numFormatges = models.IntegerField(blank=True, default=6)
     numFormatgets = models.IntegerField(blank=True, default=0)
+    def __srt__(self):
+        return self.user.username
 
 
 class Skin(models.Model):
