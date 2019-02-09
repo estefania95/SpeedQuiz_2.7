@@ -8,8 +8,7 @@ var respostes = [r1, r2, r3, r4];
 var Response;
 var quesitos = 0;
 var esCorrecte;
-eventsClick();
-
+peticio()
 function peticio() {
   if (preguntes == 0) {
     alert("Final Partida");
@@ -18,6 +17,7 @@ function peticio() {
       url: "http://127.0.0.1:8000/home/api",
       success: function(response) {
         Response = response;
+        if(preguntes == 10){ eventsClick() }
         inprimirContingut();
       },
       error: function() {
@@ -31,7 +31,7 @@ function eventsClick(){
 [
     Response.respostes.resposta1.esCorrexta,
     Response.respostes.resposta2.esCorrexta, 
-    Response.respostes.respost3.esCorrexta,
+    Response.respostes.resposta3.esCorrexta,
     Response.respostes.resposta4.esCorrexta
 ]
     for(let i=0; i< respostes.length; i++){
@@ -39,17 +39,12 @@ function eventsClick(){
             esCorrecte = event[i];
             if (esCorrecte) {
               bloquearacierto();
-              alert(esCorrecte);
             } else {
               bloquearerror();
-              alert(esCorrecte);
             }
+            peticio();
         });   
     }
-    respostes.forEach(r => {
-        console.log(r)
-        cont++;
-    });
 }
 
 function inprimirContingut(){
