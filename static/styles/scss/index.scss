@@ -8,12 +8,14 @@
 @import './mixins/mixins';
 
 /* LAYOUT */ 
-@import './layout/botiga';
-@import './layout/puntuacio';
 @import './layout/benvinguda';
 @import './layout/home';
+@import './layout/joc';
+@import './layout/botiga';
+@import './layout/puntuacio';
 
 /* MODULE */
+@import './module/cartellPreguntes';
 @import './module/formulari';
 @import './module/caixaDades';
 @import './module/banerMenu';

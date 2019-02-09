@@ -1,0 +1,31 @@
+$espai-cartellPreguntes: 10px;
+
+.cartellPreguntes{
+  background-color:var(--cartellPreguntes);
+  border-radius: 15px;
+  padding: $espai-cartellPreguntes;
+  @include hombra;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: $espai-cartellPreguntes;
+}
+.cartellPreguntes__pregunta{
+  grid-column: 1 / span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 5px;
+  background-color: var(--blanc);
+  @include hombra;
+  p{
+    margin: 0;
+
+  }
+}
+.cartellPreguntes__resposta{
+  grid-column: 1/ span 2;
+  border-radius: 15px;
+  background-color: var(--blanc);
+}
