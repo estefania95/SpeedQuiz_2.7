@@ -11,49 +11,16 @@
   <title>Document</title>
 </head>
 {% block content %}
-  <p id="partida">{{ partida.id }}</p>
-    <script>
-      var url = "http://127.0.0.1:8000/home/api/";
-
-      var request = new XMLHttpRequest();
-      request.open('GET', url);
-      request.responseType = 'json';
-      request.send();
-      request.onload = function() {
-        var pregunta = request.response;
-      }
-
-
-      var partida = $('#partida').text();
-      var data = {"formatgets": 10, "partida": partida };
-
-      $.ajax({
-          url: 'http://127.0.0.1:8000/home/api/',
-          type: 'GET',
-          contentType: 'application/json; charset=utf-8',
-          data: data,
-          dataType: 'text',
-          success: function() {
-
-          }
-      });
-
-      var url2 = "http://127.0.0.1:8000/partida/";
-
-      $.ajax({
-          url: 'http://127.0.0.1:8000/partida/',
-          type: 'GET',
-          contentType: 'application/json; charset=utf-8',
-          data: data,
-          dataType: 'text',
-          success: function() {
-
-          }
-      });
-
-
-    </script>
 <body class="bodyJoc">
+  <span id="partida">{{ partida.id }}</span>
+  <div class="bannerFiPartida ocult" id="bannerFiPartida">
+    <div class="bannerFiPartida__logo ">
+      <i class="h-100 w-100 fas fa-trophy" id="trofeu"></i>
+      <i class="w-100 h-100 fas fa-window-close" id="creu"></i>
+    </div>
+      <h2 class="" id="textBanner"></h2>
+      <a href="{% url 'home' %}" class="contenidorFlexa--devant"><i class="h-100 w-100 flexa flexa--devant fas fa-long-arrow-alt-right" id="flexa--denavat"></i></a>
+    </div>
   <div class="container">
     <header class="row configMenu align-items-center">
       <a href="{% url 'home' %}" class="col-2 col-md-1 h-100 contenidorFlexa--enrere"><i class="h-100 w-100 flexa flexa--enrera fas fa-long-arrow-alt-left" id="flexa--enrera"></i></a>
@@ -63,7 +30,7 @@
     </header>
     <main class="row mainJoc">
       <section class="cartellPreguntesContainer col-9 col-md-6 ">
-        <div class="cartellPreguntes w-100 h-100">
+        <div class="cartellPreguntes w-100 h-100" id="cartellPreguntes">
           <div class="cartellPreguntes__pregunta">
             <p id="pregunta">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
           </div>

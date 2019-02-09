@@ -11,7 +11,31 @@ var esCorrecte;
 peticio()
 function peticio() {
   if (preguntes == 0) {
-    alert("Final Partida");
+
+    if (quesitos == 10) {
+      document
+        .getElementById("#creu")
+        .firstChild.style.setProperty("--svg", "red");
+      $("#creu").addClass("ocult");
+      $("#textBanner").html("NO HAS ENCERTAT TOTES LES PREGUNTES");
+    } else {
+      $("#trofeu").addClass("ocult");
+      $("#textBanner").html("HAS ENCERTAT TOTES LES PREGUNTES!!!");
+    }
+    $("#bannerFiPartida").removeClass("ocult");
+
+    var partida = $("#partida").text();
+    var data = { formatgets: quesitos, partida: partida };
+
+    $.ajax({
+      url: "http://127.0.0.1:8000/partida/",
+      type: "GET",
+      contentType: "application/json; charset=utf-8",
+      data: data,
+      dataType: "text",
+      success: function(res) {}
+    });
+
   } else {
     $.ajax({
       url: "http://127.0.0.1:8000/home/api",
@@ -21,7 +45,7 @@ function peticio() {
         inprimirContingut();
       },
       error: function() {
-        alert("Error!");
+        alert("Error!"); 
       }
     });
   }
@@ -36,6 +60,7 @@ function eventsClick(){
 ]
     for(let i=0; i< respostes.length; i++){
         respostes[i].on("click", function() {
+          alert("partida")
             esCorrecte = event[i];
             if (esCorrecte) {
               correcte();
@@ -48,7 +73,7 @@ function eventsClick(){
 }
 
 function inprimirContingut(){
-    console.log(Response)
+    document.getElementById('cartellPreguntes').style.setProperty("--cartellPreguntes", Response.categoria.color)
     pregunta.html(Response.textPregunta);
 
     r1.html(Response.respostes.resposta1.textResposta);

@@ -158,7 +158,7 @@ def json(request):
     pregunta = {'textPregunta': text, 'categoria': categoria, 'respostes': respostes}
 
 
-    return HttpResponse(pregunta)
+    return JsonResponse(pregunta)
 
 def respostaPartida(request):
     if request.is_ajax():
