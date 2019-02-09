@@ -9,8 +9,9 @@ class Jugador(models.Model):
 
     numFormatges = models.IntegerField(blank=True, default=6)
     numFormatgets = models.IntegerField(blank=True, default=0)
-    def __srt__(self):
-        return self.user.username
+
+    def __str__(self):
+        return self.usuari.username
 
 
 class Skin(models.Model):
@@ -25,3 +26,5 @@ class SkinComprada(models.Model):
     idJugador = models.ForeignKey(Jugador, on_delete=models.CASCADE)
     nomSkin = models.ForeignKey(Skin, on_delete=models.CASCADE)
     posada = models.BooleanField(default=False)
+    def __str__(self):
+        return '%s %s' % (self.idJugador, self.nomSkin)
