@@ -27,6 +27,31 @@ def botiga(request):
     user = request.user
     jugador = Jugador.objects.get(usuari=user)
     skin_comprada = jugador.skin_set.all()
+    if request.is_ajax():
+        if request.method == 'GET':
+            accioGet = request.GET
+            nomSkin = accioGet["nomSkin"]
+            skin = Skin.objects.get(nomSkin=nomSkin)
+            accio = accioGet["accio"]
+            if accio == 'posar':
+                sposada = SkinComprada.objects.get(idJugador=jugador, posada=True)
+                sposada.posada=False
+                sposada.save()
+                posar = SkinComprada.objects.get(nomSkin=skin, idJugador=jugador)
+                posar.posada=True
+                posar.save()
+            elif accio == 'comprar':
+                skin = Skin.objects.get(nomSkin=nomSkin)
+                preuSkin = skin.preu
+                formatgesJ = jugador.numFormatges
+                if formatgesJ >= preuSkin:
+                    formatgesJ-=preuSkin
+                    jugador.numFormatges=formatgesJ
+                    jugador.save()
+                    skinComprar = SkinComprada.objects.create(idJugador=jugador, nomSkin=skin, posada=False)
+                    skinComprar.save()
+
+
 
     context = {'skin_list': skins, 'skin_comprada': skin_comprada, 'jugador': jugador, 'user': user}
     return render(request, 'botiga/botiga.html', context, {'current_user': request.user})
@@ -94,7 +119,7 @@ def puntuacio(request):
     partidesPerdudes = partida.count() -partidesGuanyades
     context = {'usuari': user, 'jugador': jugador, 'partida': partida, 'suma': suma, 'sumaf': sumaF, 'pG': partidesGuanyades, 'pP': partidesPerdudes}
 
-    return render(request, 'puntuacio/puntuacio.html', context ,{'current_user': request.user})
+    return render(request, 'puntuacio/puntuacio.html', context, {'current_user': request.user})
 
 
 def registre(request):
@@ -158,7 +183,7 @@ def json(request):
     pregunta = {'textPregunta': text, 'categoria': categoria, 'respostes': respostes}
 
 
-    return HttpResponse(pregunta)
+    return JsonResponse(pregunta)
 
 def respostaPartida(request):
     if request.is_ajax():

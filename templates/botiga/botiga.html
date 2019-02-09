@@ -24,7 +24,7 @@
             <h2>{{skin.nomSkin}}</h2>
           </header>
           <div class="vitrinaSkin__skin">
-            <img class="img-fluid" src="/static/imatges/components/skins/{{skin.nomSkin}}" alt="skin">
+            <img class="img-fluid" src="/static/imatges/components/skins/{{skin.nomSkin}}.png" alt="skin">
           </div>
           {% if skin in skin_comprada %}
             <footer class="vitrinaSkin__peu">
@@ -34,7 +34,7 @@
                   {% if skincomprada.posada == True %}
                     <span>Posada</span>
                   {% else %}
-                    <button>Posar</button>
+                    <button class="boto--posar" onclick="accio('{{skin.nomSkin}}', 'posar')">Posar</button>
                   {% endif %}
                 {% endif %}
               {% endfor %}
@@ -42,7 +42,7 @@
           {% else %}
             <footer class="vitrinaSkin__peu">
               <span>Preu: {{skin.preu}}</span>
-              <button class="buto">Comprar</button>
+              <button class="buto boto--comprar" onclick="accio('{{skin.nomSkin}}', 'comprar')">Comprar</button>
             </footer>
           {% endif %}
           </section>
