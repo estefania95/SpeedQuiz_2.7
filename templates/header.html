@@ -1,0 +1,6 @@
+<header class="row configMenu align-items-center">
+    <a href="{% url 'home' %}" class="col-2 col-md-1 h-100 contenidorFlexa--enrere"><i class="h-100 w-100 flexa flexa--enrera fas fa-long-arrow-alt-left" id="flexa--enrera"></i></a>
+    <span class="col-2 col-md-1 offset-md-7 offset-4"><a href="/accounts/logout">{{ user.username }}</a></span>
+    <span class="col-2 col-md-1"><span><img src="/static/imatges/components/formatge.png" alt="" srcset=""></span>{{ jugador.numFormatges }}</span>
+    <span class="col-2 col-md-1"><span><i class="fas fa-cheese"></i></span>{{ jugador.numFormatgets }}</span>
+</header>
