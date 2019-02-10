@@ -1,63 +1,63 @@
-#partida{
+#partida {
   display: none;
 }
-.bodyJoc{
-  background-image: url('/static/imatges/fons/joc.jpg');
+.bodyJoc {
+  background-image: url("/static/imatges/fons/joc.jpg");
 }
-.avatarContainer{
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  img{
-    height: 100%;
-    max-width: 100%;
-  }
-}
-.mainJoc{
+.mainJoc {
   height: 80%;
   max-height: 500px;
 }
+.avatarContainer {
+  font-family: "Patrick Hand", cursive;
+  @include text(1rem, 2rem);
+  color: $blanc;
+}
+.avatarContainer__skin{
+  width: auto;
+  max-height: 100%;
+}
 $alturaBanner: 70%;
 $ampladaBanner: 90%;
-.bannerFiPartida{
+.bannerFiPartida {
   --svg: yellow;
   display: flex;
   position: absolute;
   z-index: 1;
-  background-color: rgba($blanc, .9);
+  background-color: rgba($blanc, 0.9);
   border: 2px solid $tercer-color;
   border-radius: 15px;
   width: $ampladaBanner;
   height: $alturaBanner;
   top: (100% - $alturaBanner) / 2;
   left: (100% - $ampladaBanner) / 2;
-  *{
+  * {
     display: flex;
     align-items: center;
   }
-  div{
+  div {
     padding: 5rem;
     width: 45%;
-    path{
+    path {
       fill: var(--svg);
     }
   }
-  h2{
+  h2 {
     display: flex;
     justify-content: center;
     width: 45%;
-    font-family: 'Patrick Hand', cursive;
-    font-size: 5rem;
-    @media screen and (min-width: 972px){
-      font-size: 8em;
+    font-family: "Patrick Hand", cursive;
+    font-size: 3rem;
+    @media screen and (min-width: 972px) {
+      font-size: 5rem;
     }
   }
-  a{
+  a {
     width: 10%;
     height: 5rem;
     align-self: flex-end;
   }
 }
-    .ocult{
-      display: none;
-    }
+.ocult {
+  display: none;
+}

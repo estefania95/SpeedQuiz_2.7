@@ -12,7 +12,8 @@ $(document).ready(function() {
 
 });
 
-var preguntes = 10;
+const preguntesTotals = 10;
+var preguntes = 0;
 var pregunta = $("#pregunta");
 var r1 = $("#resposta--1");
 var r2 = $("#resposta--2");
@@ -21,19 +22,22 @@ var r4 = $("#resposta--4");
 var respostes = [r1, r2, r3, r4];
 var Response;
 var quesitos = 0;
-var esCorrecte;
+
 peticio()
 function peticio() {
-  if (preguntes == 0) {
+  preguntes += 1;
+  $('#contador').html(preguntes+"/"+preguntesTotals);
 
-    if (quesitos == 10) {
+  if (preguntes == preguntesTotals) {
+
+    if (quesitos != 10) {
       document
-        .getElementById("#creu")
-        .firstChild.style.setProperty("--svg", "red");
-      $("#creu").addClass("ocult");
+        .getElementById("creu").children[0].style.setProperty("--svg", "red");
+      
+      $("#trofeu").addClass("ocult");
       $("#textBanner").html("NO HAS ENCERTAT TOTES LES PREGUNTES");
     } else {
-      $("#trofeu").addClass("ocult");
+      $("#creu").addClass("ocult");
       $("#textBanner").html("HAS ENCERTAT TOTES LES PREGUNTES!!!");
     }
     $("#bannerFiPartida").removeClass("ocult");
@@ -55,11 +59,11 @@ function peticio() {
       url: "http://127.0.0.1:8000/home/api",
       success: function(response) {
         Response = response;
-        if(preguntes == 10){ eventsClick() }
+        if(preguntes == 1){ eventsClick() }
         inprimirContingut();
       },
       error: function() {
-        alert("Error!"); 
+         
       }
     });
   }
@@ -67,22 +71,25 @@ function peticio() {
 function eventsClick(){
     var event = 
 [
-    Response.respostes.resposta1.esCorrexta,
-    Response.respostes.resposta2.esCorrexta, 
-    Response.respostes.resposta3.esCorrexta,
-    Response.respostes.resposta4.esCorrexta
+    Response.respostes.resposta1.esCorrecta,
+    Response.respostes.resposta2.esCorrecta, 
+    Response.respostes.resposta3.esCorrecta,
+    Response.respostes.resposta4.esCorrecta
 ]
     for(let i=0; i< respostes.length; i++){
+      if(event[i]){
+
         respostes[i].on("click", function() {
-          alert("partida")
-            esCorrecte = event[i];
-            if (esCorrecte) {
-              correcte();
-            } else {
-              inCorrecte();
-            }
-            peticio();
+          correcte();
         });   
+
+      }else{
+
+        respostes[i].on("click", function() {
+            inCorrecte();            
+        }); 
+
+      }
     }
 }
 
@@ -97,11 +104,21 @@ function inprimirContingut(){
 }
 
 function correcte() {
+  let fp = $('#formatgesPetits').text();
+  if(Number.parseInt(fp)+1 == 4){
+    let fg = $('#formatgesGrans').text();
+    $('#formatgesGrans').html(Number.parseInt(fg)+1);
+
+    $('#formatgesPetits').html(0)
+  }else{
+    $('#formatgesPetits').html(Number.parseInt(fp)+1);
+
+  }
   quesitos += 1;
-  preguntes -= 1;
+  peticio();
 }
 
 function inCorrecte() {
-  preguntes -= 1;
+  peticio();
 }
 
