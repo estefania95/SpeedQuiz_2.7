@@ -30,7 +30,8 @@
 .vitrinaSkin__peu{
   display: flex;
   align-items: center;
-  span, 
+  justify-content: space-between;
+  div, 
   button{
     width: 50%;
     height: 75%;
@@ -38,9 +39,12 @@
       font-size: 1.5rem;
     }
   }
-  span{
+  div{
     display: flex;
     align-items: center;
     justify-content: center;
+    path{
+      fill: #ffff3a;
+    }
   }
 }
