@@ -5,9 +5,8 @@ var r1 = $("#resposta--1");
 var r2 = $("#resposta--2");
 var r3 = $("#resposta--3");
 var r4 = $("#resposta--4");
-var respostes = [r1, r2, r3, r4];
 var Response;
-var quesitos = 0;
+var quesitos = 1;
 
 peticio()
 function peticio() {
@@ -16,7 +15,7 @@ function peticio() {
 
   if (preguntes == preguntesTotals) {
 
-    if (quesitos != 10) {
+    if (quesitos != preguntesTotals) {
       document
         .getElementById("creu").children[0].style.setProperty("--svg", "red");
       
@@ -55,28 +54,34 @@ function peticio() {
   }
 }
 function eventsClick(){
-    var event = 
-[
-    Response.respostes.resposta1.esCorrecta,
-    Response.respostes.resposta2.esCorrecta, 
-    Response.respostes.resposta3.esCorrecta,
-    Response.respostes.resposta4.esCorrecta
-]
-    for(var i=0; i< respostes.length; i++){
-      if(event[i]){
-
-        respostes[i].on("click", function() {
-          correcte();
-        });   
-
-      }else{
-
-        respostes[i].on("click", function() {
-            inCorrecte();            
-        }); 
-
-      }
-    }
+r1.on("click", function() {
+  if(Response.respostes.resposta1.esCorrecta){
+    correcte();
+  }else{
+    inCorrecte();
+  }
+});
+r2.on("click", function() {
+  if(Response.respostes.resposta2.esCorrecta){
+    correcte();
+  }else{
+    inCorrecte();
+  }
+});
+r3.on("click", function() {
+  if(Response.respostes.resposta3.esCorrecta){
+    correcte();
+  }else{
+    inCorrecte();
+  }
+});
+r4.on("click", function() {
+  if(Response.respostes.resposta4.esCorrecta){
+    correcte();
+  }else{
+    inCorrecte();
+  }
+});
 }
 
 function inprimirContingut(){
@@ -101,9 +106,14 @@ function correcte() {
 
   }
   quesitos += 1;
+  console.log(quesitos)
   peticio();
+  document.getElementById("xivato").style.setProperty("--resposta", "green")
+  $("#xivato").html("Correcte")
 }
 
 function inCorrecte() {
   peticio();
+  document.getElementById("xivato").style.setProperty("--resposta", "red")
+  $("#xivato").html("Incorrecte")
 }

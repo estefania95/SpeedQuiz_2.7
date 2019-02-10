@@ -13,3 +13,18 @@
     color: var(--blanc);
   }
 }
+.boto--posar{
+  background-color: var(--tercer-color);
+  border-radius: 9px;
+  padding: 0 !important;
+
+  max-height: 6rem;
+  color: var(--blanc);
+  border: 2px solid var(--segon-color);
+  font-size: .9rem;
+  a{
+    font-family: 'Noticia Text', serif;
+    font-weight: bold;
+    color: var(--blanc);
+  }
+}
