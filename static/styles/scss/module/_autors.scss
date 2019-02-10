@@ -1,3 +1,12 @@
+.atribucioAutors{
+ border-radius: 5px;
+    background: linear-gradient(80deg, rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.45));
+    color: var(--blanc);
+    font-weight: bold;
+    max-height: 75%;
+    display: flex;
+    justify-content: center;
+}
 .autorsContent__mencio{
   @include text(1rem,1.5rem);
   text-align: center;
