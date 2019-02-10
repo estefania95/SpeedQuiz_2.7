@@ -34,7 +34,7 @@
                   {% if skincomprada.posada == True %}
                     <span>Posada</span>
                   {% else %}
-                    <button class="boto--posar" onclick="accio('{{skin.nomSkin}}', 'posar')">Posar</button>
+                    <button class="boto--posar" onclick="accio('{{skin.nomSkin}}', 'posar'), location.reload()">Posar</button>
                   {% endif %}
                 {% endif %}
               {% endfor %}
@@ -42,7 +42,7 @@
           {% else %}
             <footer class="vitrinaSkin__peu">
               <span>Preu: {{skin.preu}}</span>
-              <button class="buto boto--comprar" onclick="accio('{{skin.nomSkin}}', 'comprar')">Comprar</button>
+              <button class="buto boto--comprar" onclick="accio('{{skin.nomSkin}}', 'comprar', '{{jugador.numFormatges}}', '{{skin.preu}}'), ">Comprar</button>
             </footer>
           {% endif %}
           </section>
