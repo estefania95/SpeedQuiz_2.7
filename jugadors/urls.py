@@ -13,6 +13,7 @@ urlpatterns = [
         url(r'^puntuacio/', views.puntuacio, name='puntuacio'),
         url(r'^api/', views.json, name='json'),
     ])),
-    url(r'^politica/', views.politica, name='politica'),
     url(r'^partida/', views.respostaPartida, name='partida'),
+    url(r'^politica/', views.politica, name='politica'),
+    url(r'^autors/', views.autors, name='autors'),
 ]

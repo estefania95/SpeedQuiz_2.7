@@ -20,7 +20,6 @@ import json
 def benvinguda(request):
     return render(request, 'benvinguda/index.html', {})
 
-
 @login_required
 def botiga(request):
     skins = Skin.objects.all()
@@ -221,3 +220,6 @@ def respostaPartida(request):
 
 def politica(request):
     return render(request, 'politica/politica.html')
+
+def autors(request):
+    return render(request, 'politica/atribucioAutors.html')
