@@ -1,4 +1,4 @@
-const preguntesTotals = 10;
+var preguntesTotals = 10;
 var preguntes = 0;
 var pregunta = $("#pregunta");
 var r1 = $("#resposta--1");
@@ -62,7 +62,7 @@ function eventsClick(){
     Response.respostes.resposta3.esCorrecta,
     Response.respostes.resposta4.esCorrecta
 ]
-    for(let i=0; i< respostes.length; i++){
+    for(var i=0; i< respostes.length; i++){
       if(event[i]){
 
         respostes[i].on("click", function() {
@@ -90,9 +90,9 @@ function inprimirContingut(){
 }
 
 function correcte() {
-  let fp = $('#formatgesPetits').text();
+  var fp = $('#formatgesPetits').text();
   if(Number.parseInt(fp)+1 == 4){
-    let fg = $('#formatgesGrans').text();
+    var fg = $('#formatgesGrans').text();
     $('#formatgesGrans').html(Number.parseInt(fg)+1);
 
     $('#formatgesPetits').html(0)
