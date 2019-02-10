@@ -96,7 +96,9 @@ def joc(request):
     partida = Partida.objects.create()
     partida.save()
 
-    context = {'jugador': jugador, 'usuari': usuari, 'partida': partida}
+    skin = SkinComprada.objects.get(idJugador=jugador, posada=True)
+
+    context = {'jugador': jugador, 'usuari': usuari, 'partida': partida, "skin": skin}
 
     return render(request, 'joc/unJugador.html', context, {'current_user': request.user})
 

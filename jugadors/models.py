@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class Jugador(models.Model):
     usuari = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    numFormatges = models.IntegerField(blank=True, default=6)
+    numFormatges = models.IntegerField(blank=True, default=0)
     numFormatgets = models.IntegerField(blank=True, default=0)
 
     def __str__(self):
