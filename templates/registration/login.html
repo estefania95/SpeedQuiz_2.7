@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-    {% load static %}
 </head>
 {% block content %}
+{% load static %}
 <body>
   <div class="container">
     <div class="row h-25 justify-content-center pt-2">
-      <img src="../../static/imatges/logo/logo.svg" alt="" srcset="" class="col-5"/>
+      <img src="{% static '/imatges/logo/logo.svg' %}" alt="" srcset="" class="col-5"/>
     </div>
     <form method="post" action="" class="row p-3 formulari align-items-center">
       {% csrf_token %}

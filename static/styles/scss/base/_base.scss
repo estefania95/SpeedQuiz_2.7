@@ -3,7 +3,12 @@
 *:after {
   box-sizing: border-box;
 }
-
+svg{
+  width: 1em;
+  path{
+    fill: currentColor;
+  }
+}
 body {
   margin : 0;
   font-family: 'Noticia Text', serif;
