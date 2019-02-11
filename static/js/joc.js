@@ -31,7 +31,7 @@ function peticio() {
     var data = { formatgets: quesitos, partida: partida };
 
     $.ajax({
-      url: "http://127.0.0.1:8000/partida/",
+      url: "http://127.0.0.1:80/partida/",
       type: "GET",
       contentType: "application/json; charset=utf-8",
       data: data,
@@ -41,7 +41,7 @@ function peticio() {
 
   } else {
     $.ajax({
-      url: "http://127.0.0.1:8000/home/api",
+      url: "http://127.0.0.1:80/home/api",
       success: function(response) {
         Response = response;
         if(preguntes == 1){ eventsClick() }

@@ -3,7 +3,7 @@ function accio(nomSkin, accio, numFormatges, preuSkin){
         alert("No tens formatgets suficients")
     }
     else{
-        var url = "http://127.0.0.1:8000/home/botiga/";
+        var url = "http://127.0.0.1:80/home/botiga/";
         var dades = {'nomSkin': nomSkin, 'accio': accio};
 
         $.ajax({
