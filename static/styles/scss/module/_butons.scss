@@ -7,10 +7,11 @@
   color: var(--blanc);
   border: 2px solid var(--tercer-color);
   font-size: .9rem;
-  a{
-    font-family: 'Noticia Text', serif;
-    font-weight: bold;
-    color: var(--blanc);
+  font-family: 'Noticia Text', serif;
+  font-weight: bold;
+  color: var(--blanc);
+  @media screen and (min-width: 972px) {
+    font-size: 1.5rem;
   }
 }
 .boto--posar{

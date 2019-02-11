@@ -16,8 +16,8 @@
         <img src="{% static '/imatges/logo/logo.svg' %}" alt="" srcset="" class="col-5 offset-3">
       </div>
       <div class="row h-75 flex-column justify-content-end pb-1">
-        <button class="buto col-2 offset-10 mb-1"><a href="{% url 'registre' %}"><span>Registre</span></a></button>
-        <button class="buto col-2 offset-10"><a href="{% url 'iniciSessio' %}">Inici Sessio</a></button>
+          <a href="{% url 'registre' %}" class="aLink col-2 offset-10 mb-1"><button class="buto w-100 h-100">Registre</button></a>
+          <a href="{% url 'iniciSessio' %}" class="aLink col-2 offset-10 mb-1"><button class="buto w-100 h-100">Inici Sessio</button></a>        
       </div>
     </div>
   </body>
