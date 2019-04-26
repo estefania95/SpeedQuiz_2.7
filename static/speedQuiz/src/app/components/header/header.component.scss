@@ -1,0 +1,30 @@
+.configMenu{
+    background-image: linear-gradient(184deg, rgba(0, 0, 0, 0.45), transparent, transparent);
+    font-size: 1.5rem;
+    height: 25vh;
+    color: #fff;
+    svg{
+        width: 2.2rem;
+    }
+}
+.configMenu > * {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.arrowRouteConroller{
+    font-size: 2.2rem;
+}
+.nomContainer{
+    justify-content: center;
+    a{
+        color: #fff;
+    }
+}
+.infoFormatgesContainer{
+    justify-content: space-around;
+    path, i{
+        color: yellow;
+        fill: yellow;
+    }
+}

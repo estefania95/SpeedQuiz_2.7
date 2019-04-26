@@ -8,6 +8,7 @@ import { IniciSessioComponent } from './components/inici-sessio/inici-sessio.com
 import { TancarSessioComponent } from './components/tancar-sessio/tancar-sessio.component';
 import { BenvingudaComponent } from './components/benvinguda/benvinguda.component';
 import { RegistrarseComponent } from './components/registrarse/registrarse.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RegistrarseComponent } from './components/registrarse/registrarse.compo
     IniciSessioComponent,
     TancarSessioComponent,
     BenvingudaComponent,
-    RegistrarseComponent
+    RegistrarseComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
