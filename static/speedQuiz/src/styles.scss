@@ -4,7 +4,7 @@ $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
 @import "@fortawesome/fontawesome-free/scss/regular.scss";
 @import "@fortawesome/fontawesome-free/scss/solid.scss";
 
-
+$blue: #FE6500;
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
 body::-webkit-scrollbar {
     width: 8px;     /* Tamaño del scroll en vertical */
@@ -36,4 +36,8 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-track:hover,
 body::-webkit-scrollbar-track:active {
   background: #d4d4d4;
+}
+main.container{
+    height: 100vh;
+    width: 100%;
 }

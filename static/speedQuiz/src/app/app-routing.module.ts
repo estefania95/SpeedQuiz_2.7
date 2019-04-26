@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'iniciSessio', component: IniciSessioComponent },
   { path: 'tancarSessio', component: TancarSessioComponent },
   { path: 'registrarse', component: RegistrarseComponent },
+  { path: 'home', component: HomeComponent },
 ];
 
 @NgModule({

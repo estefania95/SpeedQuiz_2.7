@@ -12,4 +12,5 @@ export class BenvingudaComponent implements OnInit {
   ngOnInit() {
   }
 
+  nomUsuari
 }
