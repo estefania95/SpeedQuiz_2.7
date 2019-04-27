@@ -9,6 +9,9 @@ import { TancarSessioComponent } from './components/tancar-sessio/tancar-sessio.
 import { BenvingudaComponent } from './components/benvinguda/benvinguda.component';
 import { RegistrarseComponent } from './components/registrarse/registrarse.component';
 import { HeaderComponent } from './components/header/header.component';
+import { PuntuacioComponent } from './components/puntuacio/puntuacio.component';
+import { BotigaComponent } from './components/botiga/botiga.component';
+import { JocComponent } from './components/joc/joc.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { HeaderComponent } from './components/header/header.component';
     TancarSessioComponent,
     BenvingudaComponent,
     RegistrarseComponent,
-    HeaderComponent
+    HeaderComponent,
+    PuntuacioComponent,
+    BotigaComponent,
+    JocComponent
   ],
   imports: [
     BrowserModule,

@@ -1,17 +1,26 @@
 <div class="back">
     <div class="container">
         <app-header></app-header>
-        <main class="row mainHome">
-            <div class="col-12 h-100">
-                <article class="row h-100 d-flex align-items-center">
-                    <section class="panellsContainer h-100 col-6 d-flex align-content-around flex-wrap">
-                        <div class="panell"><a href=""><span>Joc</span></a></div>
-                        <div class="panell"><a href=""><span>Botiga</span></a></div>
-                        <div class="panell"><a href=""><span>Puntuació</span></a></div>
-                    </section>
-                    <section class="col-6"></section>
-                </article>
-            </div>
+        <main class="row">
+            <section class="col-12 col-md-6 h-100">
+                <div class="row grupPanellasContainer justify-content-center">
+                    <div class="col-12 panellContainer">
+                        <a routerLink="" class="panell">
+                            <span>Joc</span>
+                        </a>
+                    </div>
+                    <div class="col-12 panellContainer">
+                        <a routerLink="" class="panell">
+                            <span>Botiga</span>
+                        </a>
+                    </div>
+                    <div class="col-12 panellContainer">
+                        <a routerLink="" class="panell">
+                            <span>Puntuació</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 </div>
