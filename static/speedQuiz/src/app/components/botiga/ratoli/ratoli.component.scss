@@ -3,9 +3,10 @@ $secondary-color: lighten(#FE6500, 30%);
     max-height: 350px;
 }
 .card{
-    border: rgb(255, 221, 201) 1px solid;
+    border: 1px solid rgba(242, 170, 121, 0.8);
     background: transparent;
     transition: .7s;
+    font-family: 'Patrick Hand', cursive;
     &:hover{
         transition: .7s;
         box-shadow: -1px 15px 30px -12px black;
@@ -13,7 +14,8 @@ $secondary-color: lighten(#FE6500, 30%);
 }
 .card-header,
 .card-footer{
-    background-color: $secondary-color;
+    color: white;
+    background-color: rgba(242, 170, 121, 0.8);
 }
 .card-body{
     position: relative;
@@ -30,7 +32,6 @@ $secondary-color: lighten(#FE6500, 30%);
 }
 .card-footer{
     font-size: 1.5rem;
-    color: white;
     button{
         font-weight: bold;
     }
