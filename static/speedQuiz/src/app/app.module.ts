@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { PuntuacioComponent } from './components/puntuacio/puntuacio.component';
 import { BotigaComponent } from './components/botiga/botiga.component';
 import { JocComponent } from './components/joc/joc.component';
+import { RatoliComponent } from './components/botiga/ratoli/ratoli.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { JocComponent } from './components/joc/joc.component';
     HeaderComponent,
     PuntuacioComponent,
     BotigaComponent,
-    JocComponent
+    JocComponent,
+    RatoliComponent
   ],
   imports: [
     BrowserModule,

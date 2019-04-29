@@ -6,6 +6,9 @@
     svg{
         width: 2.2rem;
     }
+    a{
+        text-decoration: none;
+    }
 }
 .configMenu > * {
     height: 100%;
@@ -22,7 +25,7 @@
     }
 }
 .infoFormatgesContainer{
-    justify-content: space-around;
+    justify-content: space-center;
     path, i{
         color: yellow;
         fill: yellow;
