@@ -5,6 +5,9 @@ import { IniciSessioComponent } from './components/inici-sessio/inici-sessio.com
 import { TancarSessioComponent } from './components/tancar-sessio/tancar-sessio.component';
 import { RegistrarseComponent } from './components/registrarse/registrarse.component';
 import { HomeComponent } from './components/home/home.component';
+import { JocComponent } from './components/joc/joc.component';
+import { PuntuacioComponent } from './components/puntuacio/puntuacio.component';
+import { BotigaComponent } from './components/botiga/botiga.component';
 
 const routes: Routes = [
   { path: '', component: BenvingudaComponent },
@@ -12,6 +15,9 @@ const routes: Routes = [
   { path: 'tancarSessio', component: TancarSessioComponent },
   { path: 'registrarse', component: RegistrarseComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'home/joc', component: JocComponent },
+  { path: 'home/botiga', component: BotigaComponent },
+  { path: 'home/puntuacio', component: PuntuacioComponent }
 ];
 
 @NgModule({
