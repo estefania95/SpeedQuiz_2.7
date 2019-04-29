@@ -1,3 +1,5 @@
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+
 .back{
     width: 100%;
     height: 100%;
@@ -6,9 +8,9 @@
     background-size: cover;
 }
 .panellJoc {
-    background-color: #FE6500;
-    border-radius: 1rem;
-    max-height: 400px;
+  background-color: #FE6500;
+  border-radius: 1rem;
+  max-height: 400px;
 }
 main{
     height: 75vh;
@@ -46,18 +48,30 @@ $espai-cartellPreguntes: 10px;
   }
 }
 .dadesContainer > *{
+  font-size: 1.4rem;
+  color: #fff;
+  font-family: 'Patrick Hand', cursive;
+  @include media-breakpoint-up(md){
     font-size: 2rem;
-    color: #fff;
-    font-family: 'Patrick Hand', cursive;
+  }
 }
 .correcte{
-    background-color: green;
-    border-radius: 1rem;
+  background-color: green;
+  border-radius: 1rem;
 }
 .incorrecte{
-    background-color: red;
-    border-radius: 1rem;
+  background-color: red;
+  border-radius: 1rem;
 }
 .ratoli{
+  max-height: 200px;
+  @include media-breakpoint-up(xs) { 
+    max-height: 250px;
+  }
+  @include media-breakpoint-up(sm) { 
     max-height: 350px;
+  }
+  @include media-breakpoint-up(md) { 
+    max-height: 350px;
+  }
 }
