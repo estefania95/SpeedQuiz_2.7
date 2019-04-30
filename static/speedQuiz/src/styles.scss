@@ -4,7 +4,7 @@ $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
 @import "@fortawesome/fontawesome-free/scss/regular.scss";
 @import "@fortawesome/fontawesome-free/scss/solid.scss";
 
-$blue: #FE6500;
+@import './variables.scss';
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
 body{
     height: 100vh;

@@ -3,3 +3,15 @@ main{
     background-position: center;
     background-size: cover;
 }
+.atrubucioAutors,
+button{
+    font-family: 'Noticia Text', serif;
+    font-size: 1.3rem;
+}
+.atrubucioAutors {
+    max-height: 3rem;
+    font-weight: bold;
+    background: linear-gradient(80deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.45));
+    text-decoration: none;
+    color: #fff;
+}

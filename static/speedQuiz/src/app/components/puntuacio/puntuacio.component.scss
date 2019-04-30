@@ -1,0 +1,63 @@
+@import '../../../variables.scss';
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+.back{
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../assets/imatges/fons/golfes.jpg');
+    background-position: center;
+    background-size: cover;
+}
+$aclarit: lighten($blue, 25%);
+%glossy {
+    background-color: rgba($aclarit, .8);
+    box-shadow: 4px 4px rgba(0,0,0,.5);
+}
+main{
+    height: 75vh;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+.caixaDades {
+    --fs-titol: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 364px;
+    height: 250px;
+
+    margin: 0 auto;
+    
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    @extend %glossy;
+  
+    font-family: "Patrick Hand", cursive;
+     /*   
+    &:hover{
+        transition: .5s;
+        background-color: rgb(250, 231, 209);
+        .caixaDades__dades {
+            color: black;
+        }
+    }*/
+    .caixaDades__titol {
+        width: 100%;
+        align-self: flex-start;
+
+        line-height: 1.4;
+        font-size: var(--fs-titol) !important;
+    }
+    .caixaDades__dades{
+        font-size: var(--fs-titol);
+        svg{
+            width: calc(var(--fs-titol) + .5rem);
+        }
+        &, path{
+            fill: #292b2c;
+            color: #292b2c;
+        }
+    }
+  }
