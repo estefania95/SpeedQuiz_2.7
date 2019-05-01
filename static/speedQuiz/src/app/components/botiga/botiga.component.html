@@ -1,9 +1,9 @@
 <div class="back">
   <div class="container">
-    <app-header fletxaVisible=true></app-header>
+    <app-header [fletxaVisible]="true" [dadesUsuari]="dadesUsuari"></app-header>
     <main class="row botigaContainer justify-content-center">
-      <div class="col-10 col-sm-10 col-md-6 col-lg-4">
-        <app-ratoli></app-ratoli>
+      <div class="col-10 col-sm-10 col-md-6 col-lg-4" *ngFor="let skin of skins">
+        <app-ratoli [skin]="skin"></app-ratoli>
       </div>
     </main>
   </div>
