@@ -5,4 +5,9 @@ export class DadesUsuari {
     nomSkin: String;
 }
 
-export const dadesUsuari: DadesUsuari = new DadesUsuari;
+export const dadesUsuari: DadesUsuari = {
+    nom: 'Xavi',
+    formatges: 150,
+    formatgets: 3,
+    nomSkin: 'inicial'
+};
