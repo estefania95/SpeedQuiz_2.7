@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-import { DadesPuntuacio } from '../classes/dadesPuntuacio';
+import { DadesPuntuacio } from '../../classes/dadesPuntuacio';
 
 @Injectable({
   providedIn: 'root'
