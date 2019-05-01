@@ -1,4 +1,5 @@
 db.sqlite3
+static/speedQuiz/node_modules/*
 speedQuizProject/__pycache__/*
 jugadors/migrations/*
 jugadors/__pycache__/*
