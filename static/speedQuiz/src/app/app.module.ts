@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { PuntuacioComponent } from './components/puntuacio/puntuacio.component';
 import { BotigaComponent } from './components/botiga/botiga.component';
 import { JocComponent } from './components/joc/joc.component';
 import { RatoliComponent } from './components/botiga/ratoli/ratoli.component';
+import { TaulellPreguntesComponent } from './components/joc/taulell-preguntes/taulell-preguntes.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,13 @@ import { RatoliComponent } from './components/botiga/ratoli/ratoli.component';
     PuntuacioComponent,
     BotigaComponent,
     JocComponent,
-    RatoliComponent
+    RatoliComponent,
+    TaulellPreguntesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

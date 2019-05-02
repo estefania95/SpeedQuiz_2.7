@@ -1,10 +1,10 @@
 <div class="back">
   <div class="container">
-      <app-header fletxaVisible=true></app-header>
+      <app-header [fletxaVisible]="true" [dadesUsuari]="usuari"></app-header>
       <main class="row">
         <section class="col-12 col-xs-10 col-md-12 col-xl-4 p-2">
           <div class="caixaDades p-3">
-            <h2 class="caixaDades__titol">Formatges totals</h2>
+            <h2 class="caixaDades__titol">{{puntuacions[0].titol}}</h2>
             <div class="w-50 d-inline-block caixaDades__dades">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 58.048 58.048" style="enable-background:new 0 0 58.048 58.048;" xml:space="preserve">
@@ -60,51 +60,51 @@
                 </svg>
             </div>
             <div class="w-50 d-inline-block caixaDades__dades">
-              1
+              {{puntuacions[0].score}}
             </div>
           </div>
         </section>
         <section class="col-12 col-xs-10 col-md-12 col-xl-4 p-2">
           <div class="caixaDades p-3">
-            <h2 class="caixaDades__titol">Formatgets totals</h2>
+            <h2 class="caixaDades__titol">{{puntuacions[1].titol}}</h2>
             <div class="w-50 d-inline-block caixaDades__dades">
                 <i class="fas fa-cheese"></i>
             </div>
             <div class="w-50 d-inline-block caixaDades__dades">
-              2
+              {{puntuacions[1].score}}
             </div>
           </div>
         </section>
         <section class="col-12 col-xs-10 col-md-12 col-xl-4 p-2">
           <div class="caixaDades p-3">
-            <h2 class="caixaDades__titol">Partides guanyades</h2>
+            <h2 class="caixaDades__titol">{{puntuacions[2].titol}}</h2>
             <div class="w-50 d-inline-block caixaDades__dades">
                 <i class="fas fa-trophy"></i>
             </div>
             <div class="w-50 d-inline-block caixaDades__dades">
-              3
+              {{puntuacions[2].score}}
             </div>
           </div>
         </section>
         <section class="col-12 col-xs-10 col-md-12 col-xl-4 p-2">
           <div class="caixaDades p-3">
-            <h2 class="caixaDades__titol">Partides perdudes</h2>
+            <h2 class="caixaDades__titol">{{puntuacions[3].titol}}</h2>
             <div class="w-50 d-inline-block caixaDades__dades">
                 <i class="fas fa-window-close"></i>
             </div>
             <div class="w-50 d-inline-block caixaDades__dades">
-              4
+              {{puntuacions[3].score}}
             </div>
           </div>
         </section>
         <section class="col-12 col-xs-10 col-md-12 col-xl-4 p-2">
           <div class="caixaDades p-3">
-            <h2 class="caixaDades__titol">Partides jugades</h2>
+            <h2 class="caixaDades__titol">{{puntuacions[4].titol}}</h2>
             <div class="w-50 d-inline-block caixaDades__dades">
                 <i class="fas fa-gamepad"></i>
             </div>
             <div class="w-50 d-inline-block caixaDades__dades">
-              5
+              {{puntuacions[4].score}}
             </div>
           </div>
         </section>

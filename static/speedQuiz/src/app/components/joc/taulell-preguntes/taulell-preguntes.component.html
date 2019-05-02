@@ -1,0 +1,8 @@
+<div class="cartellPreguntes w-100 h-100" id="cartellPreguntes">
+    <div class="cartellPreguntes__pregunta">
+      {{preguntaActual.pregunta}}
+    </div>
+    <button class="cartellPreguntes__resposta" *ngFor="let resposta of preguntaActual.respostes" (click)="setResposta(resposta.id)">
+      {{resposta.resposta}}
+    </button>
+  </div>
