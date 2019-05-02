@@ -1,34 +1,41 @@
 <div class="back">
   <div class="container">
-    <app-header></app-header>
+    <app-header [dadesUsuari]="usuari"></app-header>
     <main class="row">
         <section class="cartellPreguntesContainer col-6 col-md-6 p-2 pb-3">
-            <div class="cartellPreguntes w-100 h-100" id="cartellPreguntes">
-              <div class="cartellPreguntes__pregunta">
-                pregunta
-              </div>
-              <button class="cartellPreguntes__resposta" *ngFor="let resposta of respostes">
-                {{resposta}} 
-              </button>
-            </div>
-          </section>
-      <section class="col-6">
-        <div class="row">
+          <app-taulell-preguntes (preguntesTotals)="preguntesTotals($event)" (preguntaCorecte)="preguntaCorecte($event)"></app-taulell-preguntes>    
+        </section>
+      <section class="col-6 h-100">
+        <div class="row h-100">
           <div class="col-12 h-25 d-flex dadesContainer">
             <div class="w-50 p-2">
-              <div class="d-flex justify-content-center align-items-center" [ngClass]="{'correcte': isCorrecte, 'incorrecte': !isCorrecte}">
-                {{textCorrecte}}
-              </div>
+              <div class="d-flex justify-content-center correcte" *ngIf="isCorrecte">
+                Correcte
+              </div> 
+              <div class="d-flex justify-content-center incorrecte" *ngIf="isCorrecte == false">
+                Incorrecte
+              </div> 
             </div>
-            <div class="w-50 d-flex justify-content-center align-items-center">
-              1/10
+            <div class="w-50 d-flex justify-content-center">
+              {{indexPreguntes[0]}}/{{indexPreguntes[1]}}
             </div>
           </div>
-          <div class="d-flex col-12 h-75 p-md-4 justify-content-center align-content-end">
-            <img class="img-fluid ratoli" src="assets/imatges/components/skins/inicial.png" alt="">
+          <div class="d-flex col-12 h-75 p-1 justify-content-center align-items-end">
+            <img class="h-100 ratoli" src="assets/imatges/components/skins/inicial.png" alt="Skin del jugador">
           </div>
         </div>
       </section>
     </main>
+  </div>
+  <div id="popup1" class="overlay" [ngStyle]="{'display': indexPreguntes[0] == indexPreguntes[1]+1 ? 'block': 'none'}">
+      <div class="popup d-flex flex-wrap">
+        <div class="guanyador guanyador--icona w-50 h-100 d-flex justify-content-center align-items-center" *ngIf="formatgets == indexPreguntes[1]+1"><i class="fas fa-trophy"></i></div>
+        <h2 class="guanyador guanyador--text w-50 h-100 d-flex justify-content-center align-items-center" *ngIf="formatgets == indexPreguntes[1]+1">HAS ENCERTAT TOTES LES PREGUNTES</h2>
+
+        <div class="perdedor perdedor--icona w-50 h-100 d-flex justify-content-center align-items-center" *ngIf="formatgets != indexPreguntes[1]+1"><i class="fas fa-sad-cry"></i></div>
+        <h2 class="perdedor perdedor--text w-50 h-100 d-flex justify-content-center align-items-center" *ngIf="formatgets != indexPreguntes[1]+1">NO HAS ENCERTAT TOTES LES PREGUNTES</h2>
+        
+        <a class="close" routerLink="/home/">&times;</a>
+    </div>
   </div>
 </div>

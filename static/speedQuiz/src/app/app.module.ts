@@ -14,6 +14,7 @@ import { PuntuacioComponent } from './components/puntuacio/puntuacio.component';
 import { BotigaComponent } from './components/botiga/botiga.component';
 import { JocComponent } from './components/joc/joc.component';
 import { RatoliComponent } from './components/botiga/ratoli/ratoli.component';
+import { TaulellPreguntesComponent } from './components/joc/taulell-preguntes/taulell-preguntes.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RatoliComponent } from './components/botiga/ratoli/ratoli.component';
     PuntuacioComponent,
     BotigaComponent,
     JocComponent,
-    RatoliComponent
+    RatoliComponent,
+    TaulellPreguntesComponent
   ],
   imports: [
     BrowserModule,
